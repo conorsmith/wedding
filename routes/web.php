@@ -19,6 +19,12 @@ Route::get("/invite/{id}", GetInvite::class);
 
 Route::middleware(['auth.basic'])->group(function () {
 
+    Route::get("/new-splash", function () {
+        return view('new-splash', [
+            'style' => 3,
+        ]);
+    });
+
     Route::get('/preview-invite/{id?}', GetInvite::class);
 
     Route::get("/admin", function () {
