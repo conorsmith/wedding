@@ -17,7 +17,7 @@ final class GetInvite
 
         return view('invite', [
             'invite' => Invite::find($id),
-            'style'  => $request->get('style', "2"),
+            'style'  => $request->get('style', "3"),
         ]);
     }
 
