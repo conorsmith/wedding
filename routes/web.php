@@ -21,6 +21,10 @@ Route::middleware(['auth.basic'])->group(function () {
 
     Route::get('/preview-invite/{id?}', GetInvite::class);
 
+    Route::get("/admin", function () {
+        return redirect("/admin/guests");
+    });
+
     Route::get("/admin/guests", function () {
         return view('admin.guests.list', [
             'guests' => \ConorSmith\Wedding\Guest::orderBy('last_name')->get(),
