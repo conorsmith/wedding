@@ -18,13 +18,17 @@ final class PostEditGuest
         $guest = Guest::find($id);
 
         DB::transaction(function () use ($request, $guest) {
-
-            $guest->update($request->all());
+            $this->updateGuest($request, $guest);
             $this->updateRelationship($request, $guest);
             $this->updateInvites($request, $guest);
         });
 
-        return redirect("/admin/guests");
+        return redirect("/admin/guests/{$id}");
+    }
+
+    private function updateGuest(Request $request, Guest $guest): void
+    {
+        $guest->update($request->all());
     }
 
     private function updateRelationship(Request $request, Guest $guest): void

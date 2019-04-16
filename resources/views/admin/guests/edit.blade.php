@@ -59,7 +59,7 @@
       </div>
       <div class="col-sm-2">
         @if($partner)
-          <a href="/admin/guests/{{ $partner->id }}" class="btn btn-block btn-light">Edit Partner</a>
+          <a href="/admin/guests/{{ $partner->id }}" class="btn btn-block btn-light">Edit Partner's Info</a>
         @endif
       </div>
     </div>
@@ -81,7 +81,7 @@
     <h3>Invite</h3>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Plus Partner</label>
+      <label class="col-sm-2 col-form-label">Joint Invite</label>
       <div class="col-sm-1">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="invite_plus_partner" value="yes" {{ $guest->getInvite()->isForTwoGuests() ? 'checked="checked"' : '' }}>
@@ -97,9 +97,23 @@
           <input type="text" readonly class="form-control-plaintext" style="font-style: italic;" value="{{ $guest->getInvite()->guestA->first_name }} and {{ $guest->getInvite()->guestB->first_name }}">
         </div>
         <div class="col-sm-2">
-          <a href="/admin/invites/{{ $guest->getInvite()->id }}/switch?guest={{ $guest->id }}" class="btn btn-block btn-light">Switch Names</a>
+          <a href="/admin/invites/{{ $guest->getInvite()->id }}/switch?guest={{ $guest->id }}" class="btn btn-block btn-light">Reverse Names</a>
         </div>
       @endif
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Send Invite via Email</label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="receive_email" value="1" {{ $guest->receive_email ? 'checked="checked"' : '' }}>
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="receive_email" value="0" {{ !$guest->receive_email ? 'checked="checked"' : '' }}>
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
     </div>
 
     <div class="form-group row">
@@ -153,9 +167,9 @@
 
     <hr>
 
-    <div class="row" style="margin-bottom: 40px;">
+    <div class="row" style="margin-bottom: 40px; text-align: right;">
 
-      <div class="col-sm-10 offset-sm-2">
+      <div class="col-sm-3 offset-sm-9">
 
         <h3>Danger Zone</h3>
 

@@ -14,6 +14,7 @@ class Guest extends Model
         'email',
         'phone',
         'address',
+        'receive_email',
     ];
 
     /** @var ?self */
