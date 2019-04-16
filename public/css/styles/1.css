@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Kalam:300,400,700&amp;subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Mali:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext');
+
+html, body, .mali {
+    height: 100%;
+}
+
+.container-heading {
+    max-width: 920px;
+}
+
+.invite-top {
+    background: url('/img/cream_dust.png') repeat;
+    background-color: #ffffebd0;
+}
+
+.invite-heading {
+    text-align: center;
+    padding: 80px 0 50px 0;
+    line-height: 1;
+    color: #fff;
+    font-size: 42px;
+    letter-spacing: -0.05em;
+    line-height: 0.8;
+    color: #00C9C9;
+}
+
+.invite-heading .lead {
+    font-size: 20px;
+    letter-spacing: normal;
+    margin-bottom: 30px;
+}
+
+.invite-heading .rule {
+    border-color: #00C9C9;
+}
+
+.invite-heading .name {
+    font-size: 70px;
+    color: #00BDBD;
+}
+
+.invite-details {
+    text-align: center;
+    line-height: 1;
+    color: #fff;
+}
+
+.invite-details .time {
+    font-size: 30px;
+}
+
+.invite-details .location {
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+
+.invite-details .cta {
+    color: #fafafa;
+    font-size: 40px;
+    background-color: #00C9C9;
+    padding: 0 20px 0px 20px;
+    border-radius: 8px;
+}
+
+.invite-details .cta:hover {
+    text-decoration: none;
+    background-color: #00BDBD;
+}
+
+.kalam {
+    font-family: Kalam;
+    font-weight: 300;
+}
+
+.kalam .name {
+    font-weight: 400;
+}
+
+.kalam .time {
+    font-weight: 400;
+}
+
+.kalam .location {
+    font-weight: 300;
+}
+
+.mali .kalam.cta {
+    font-weight: 800;
+    padding: 5px 20px 0px 20px;
+}
+
+.mali {
+    font-family: Mali;
+    font-weight: 300;
+}
+
+.mali .invite-heading {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.mali .lead {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+.mali .name {
+    font-style: italic;
+    font-weight: 200;
+}
+
+.mali .location {
+    font-style: italic;
+    font-weight: 200;
+}
+
+.mali .cta {
+    font-weight: 500;
+}
+
+hr.rule {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}

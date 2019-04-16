@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ConorSmith\Wedding\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'ConorSmith\Wedding\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
