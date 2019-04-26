@@ -134,9 +134,9 @@
 
         <h3>Accommodation</h3>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet laoreet neque, at convallis velit. Nam vestibulum eros in mauris commodo vehicula. Nullam aliquet vehicula enim in faucibus. Quisque eget mattis quam. Maecenas quis magna consequat, suscipit libero id, aliquam urna. Aliquam consectetur ultrices enim, vel pharetra lectus varius eget. Morbi in diam id nibh pretium sagittis. Nam in mi vehicula, mattis nibh ac, semper mi.</p>
+        <p>Palmerstown House Estate is located outside Johnstown, Co Kildare. The venue is quite close to both Sallins and Naas.</p>
 
-        <p>Aenean facilisis ac neque non cursus. Aenean nisl tortor, elementum sed elementum at, condimentum non nulla. Nunc aliquet imperdiet iaculis. Duis accumsan, magna vel porttitor tempor, nisl nulla imperdiet mi, et cursus ligula sapien molestie libero. Curabitur finibus consequat magna, non pulvinar quam hendrerit condimentum. Etiam commodo at turpis non laoreet. Cras sed turpis ac arcu placerat rhoncus. Praesent commodo blandit odio. Curabitur eleifend gravida aliquam. Sed id lorem imperdiet, faucibus dui et, porttitor velit.</p>
+        <p>Contact such and such in the so and so hotel...</p>
 
       </div>
 
