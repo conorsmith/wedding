@@ -20,8 +20,23 @@ Route::get("/invite/{id}", GetInvite::class);
 Route::middleware(['auth.basic'])->group(function () {
 
     Route::get("/new-splash", function () {
+
+        $weddingDate = new \Carbon\Carbon("2019-08-18 15:00:00", "Europe/Dublin");
+        $now = new \Carbon\Carbon();
+
+        $interval = $weddingDate->diffAsCarbonInterval($now);
+
+        $countdown = [
+            'days' => $weddingDate->diffInDays($now),
+            'hours' => $interval->hours,
+            'minutes' => $interval->minutes,
+            'seconds' => $interval->seconds,
+        ];
+
         return view('new-splash', [
-            'style' => 3,
+            'style'             => 3,
+            'countdown'         => $countdown,
+            'isCountdownActive' => $weddingDate->isFuture(),
         ]);
     });
 

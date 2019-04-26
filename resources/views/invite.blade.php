@@ -14,7 +14,7 @@
 
 <div>
 
-<div class="invite-top">
+<div class="invite-top bg-paper">
 
   <div class="left-border-holder">
     <div class="left-border"></div>
@@ -62,42 +62,78 @@
   </div>
 </div>
 
-<div class="invite-bottom">
+<div class="bg-photo bg-manor-house">
 
-<div class="container">
-  <div class="invite-details">
+<div class="container details">
 
-    <div class="when-and-where clearfix">
+  <div class="when-and-where clearfix">
 
-      <div class="time-and-date">
-        <div class="day">Sunday</div>
-        <div class="date">
-          <span class="date-day">18</span> August <span class="date-year">2019</span>
-        </div>
-        <div class="time">
-          3.00 pm
-        </div>
+    <div class="time-and-date">
+      <div class="day">Sunday</div>
+      <div class="date">
+        <span class="date-day">18</span> August <span class="date-year">2019</span>
       </div>
-
-      <div class="location">
-        <div class="building">The Manor House</div>
-        <div class="venue">Palmerstown House Estate</div>
-        <div class="county">Kildare</div>
+      <div class="time">
+        3.00 pm
       </div>
-
     </div>
 
-    <hr class="rule">
-
-    <div class="rsvp-cta">
-
-      <a href="#">RSVP</a>
-
+    <div class="location">
+      <div class="building">The Manor House</div>
+      <div class="venue">Palmerstown House Estate</div>
+      <div class="county">Kildare</div>
     </div>
 
   </div>
+
+  <hr class="rule">
+
+  <!--
+  <div class="rsvp-cta">
+
+    <a href="#">RSVP</a>
+
+    <p>Before 22 June 2019</p>
+
+  </div>
+  -->
+
+  <div class="rsvp">
+    RSVP before 22 June 2019
+  </div>
+
 </div>
 
+</div>
+
+<div class="bg-paper">
+
+  <div class="container">
+
+    <form method="POST">
+
+    <div class="button-container clearfix">
+
+      <a href="#" class="button">
+        {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
+      </a>
+
+      <a href="#" class="button">
+        {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
+      </a>
+
+    </div>
+
+    </form>
+
+    <hr class="rule" style="margin-bottom: 0;">
+
+  </div>
+
+</div>
+
+<div class="invite-footer">
+  <img src="/img/lurcher.png">
 </div>
 
 </div>

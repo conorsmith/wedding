@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Overlock:400,400i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
 html, body {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h3 {
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .container-heading {
@@ -47,7 +54,11 @@ html, body {
     box-shadow: 0px -0.1rem 1rem 0px rgba(0,0,0,0.8);
 }
 
-.invite-top::after {
+.invite-top.bg-paper {
+    padding-top: 0;
+}
+
+.invite-top.half-bg::after {
     content: "";
     background-image: url("/img/clean-textile.png");
     /*background-color: #ffffde;*/
@@ -62,12 +73,31 @@ html, body {
 }
 
 .invite-bottom {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown1.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown2.jpg');
     background-size: cover;
     background-position: center;
     padding-top: 40px;
     padding-bottom: 40px;
     margin: 0 auto;
+}
+
+.invite-footer::after {
+    content: "";
+    background-image: url("/img/clean-textile.png");
+    background-color: #ffffff;
+    opacity: 0.4;
+}
+
+.invite-footer {
+    background-image: url("/img/clean-textile.png");
+    background-color: #ffffff;
+    text-align: center;
+    padding: 2.5rem 0;
+    padding-right: 1.7rem;
+}
+
+.invite-footer img {
+    width: 100px;
 }
 
 /******************************************/
@@ -77,7 +107,7 @@ html, body {
     padding: 60px 0 50px 0;
     font-size: 2.75rem;
     letter-spacing: -0.1rem;
-    color: #00a5ad;
+    color: #009ba3;
     font-style: italic;
     font-weight: 400;
     font-family: Overlock, sans-serif;
@@ -120,62 +150,87 @@ html, body {
     padding-top: 0.3rem;
 }
 
-.invite-heading hr.rule {
+.bg-paper hr.rule {
     overflow: visible; /* For IE */
     padding: 0;
     border: none;
-    border-top: medium double #00a5ad;
-    color: #00a5ad;
+    border-top: medium double #009ba3;
+    color: #009ba3;
     text-align: center;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    width: 890px;
+}
+
+.button-container {
+    width: 44rem;
+    margin: 0 auto;
+}
+
+a.button {
+    display: block;
+    float: left;
+    width: 20rem;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 200;
+    background: #fff;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    margin: 0 1rem;
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s;
+    -webkit-box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
+}
+
+a.button:hover {
+    background-color: #009ba3;
 }
 
 /**********************************/
 
-.invite-details {
+.when-and-where {
     font-family: 'Fira Sans', sans-serif;
-    text-align: center;
-    color: #fff;
     font-weight: 300;
-}
-
-.invite-details .when-and-where {
+    text-align: center;
     width: 890px;
     margin: 1rem auto 0 auto;
 }
 
-.invite-details .time-and-date {
+.when-and-where .time-and-date {
     float: left;
     width: 445px;
     margin: 0 auto 2rem auto;
     font-size: 1.6rem;
 }
 
-.invite-details .time-and-date .day {
+.when-and-where .time-and-date .day {
     line-height: 1rem;
 }
 
-.invite-details .time-and-date .date {
+.when-and-where .time-and-date .date {
     font-size: 2.2rem;
     font-weight: 500;
     font-style: normal;
     line-height: 3rem;
 }
 
-.invite-details .time-and-date .date-day {
+.when-and-where .time-and-date .date-day {
     letter-spacing: 0rem;
 }
 
-.invite-details .time-and-date .date-year {
+.when-and-where .time-and-date .date-year {
     letter-spacing: 0rem;
 }
 
-.invite-details .time-and-date .time {
+.when-and-where .time-and-date .time {
     font-variant: small-caps;
 }
 
-.invite-details .location {
+.when-and-where .location {
     float: left;
     width: 445px;
     margin: 0 auto;
@@ -183,24 +238,24 @@ html, body {
     font-style: normal;
 }
 
-.invite-details .building {
+.when-and-where .building {
     line-height: 1rem;
     font-weight: 200;
     font-size: 1.6rem;
 }
 
-.invite-details .venue {
+.when-and-where .venue {
     font-weight: 500;
     font-size: 2.2rem;
     line-height: 3rem;
 }
 
-.invite-details .county {
+.when-and-where .county {
     font-weight: 100;
     font-size: 1.6rem;
 }
 
-.invite-details hr.rule {
+.details hr.rule {
     overflow: visible; /* For IE */
     padding: 0;
     border: none;
@@ -212,18 +267,152 @@ html, body {
     width: 890px;
 }
 
-.invite-details .rsvp-cta a,
-.invite-details .rsvp-cta a:visited,
-.invite-details .rsvp-cta a:active {
-    color: #fff;
-    font-size: 6rem;
-    font-weight: 200;
-    transition: 0.3s;
-    letter-spacing: 1rem;
+.rsvp-cta {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
 }
 
-.invite-details .rsvp-cta a:hover {
+.rsvp-cta a,
+.rsvp-cta a:visited,
+.rsvp-cta a:active {
+    color: #fff;
+    font-size: 6rem;
+    font-weight: 300;
+    letter-spacing: 2rem;
+    transition: 0.3s;
+    padding-left: 2rem; /* Hack to centre the text */
+}
+
+.rsvp-cta a:hover {
     text-decoration: none;
-    color: #00a5ad;
-    text-shadow: 0 0 1rem #FFFFFF33;
+    color: #009ba3;
+    text-shadow: 0 0 1rem #000000;
+}
+
+.rsvp-cta p {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.rsvp {
+    padding: 2rem 0 1rem 0;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+}
+
+.rsvp a,
+.rsvp a:visited,
+.rsvp a:active {
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+.rsvp a:hover {
+    color: #009ba3;
+    text-shadow: 0 0 1rem #00000033;
+}
+
+/************************************/
+
+.countdown {
+    font-family: 'Fira Sans', sans-serif;
+    width: 32rem;
+    margin: 0 auto;
+}
+
+.countdown .segment {
+    float: left;
+    text-align: center;
+    width: 8rem;
+}
+
+.countdown .value {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.countdown .label {
+    font-weight: 100;
+}
+
+#post-countdown {
+    font-family: 'Fira Sans', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+/************************************/
+
+.photo {
+    background: white;
+    display: inline;
+    float: left;
+    margin: 0 15px 30px;
+    padding: 10px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    transition: all .15s linear;
+    z-index:0;
+    position:relative;
+}
+
+.photo.photo-left {
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+.photo.photo-right {
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+
+.col-narrow {
+    float: left;
+    width: 370px;
+}
+
+.col-wide {
+    float: left;
+    width: 740px;
+}
+
+.bg-paper {
+    background-image: url("/img/clean-textile.png");
+    background-color: #ffffff;
+    padding-top: 3rem;
+    font-weight: 300;
+}
+
+.bg-photo {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.bg-manor-house {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-estate {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown1.jpg');
+    background-size: cover;
+    background-position: center;
 }
