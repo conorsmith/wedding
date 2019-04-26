@@ -159,7 +159,9 @@
       <div class="col-narrow">
 
         <div class="photo photo-left">
-          <img src="/img/map.png" style="width: 300px;">
+          <a href="https://goo.gl/maps/RDBCnHRFoAC2chnw5" target="_blank">
+            <img src="/img/map.png" style="width: 300px;">
+          </a>
         </div>
 
       </div>
@@ -173,6 +175,8 @@
         <p>To reach the venue, take exit 8 off the N7, following the signs for Sallins. After about 600 m, take a turn right into the estate. (Keep your eyes open, it's easy to miss. If you pass Johnstown Garden Centre you've gone too far.)</p>
 
         <p>In the grounds of the estate, follow the signs for the Manor House. Turn left into the car park behind the Manor House.</p>
+
+        <p><a href="https://goo.gl/maps/RDBCnHRFoAC2chnw5" target="_blank">View the venue on Google Maps</a></p>
 
       </div>
 

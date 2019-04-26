@@ -405,6 +405,17 @@ a.button:hover {
     color: #fff;
 }
 
+.bg-photo a,
+.bg-photo a:visited,
+.bg-photo a:active {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.bg-photo a:hover {
+    color: #ddd;
+}
+
 .bg-manor-house {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown2.jpg');
     background-size: cover;
