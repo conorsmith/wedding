@@ -222,7 +222,9 @@
 
         <h3>Contact Details</h3>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet laoreet neque, at convallis velit. Nam vestibulum eros in mauris commodo vehicula. Nullam aliquet vehicula enim in faucibus. Quisque eget mattis quam. Maecenas quis magna consequat, suscipit libero id, aliquam urna. Aliquam consectetur ultrices enim, vel pharetra lectus varius eget. Morbi in diam id nibh pretium sagittis. Nam in mi vehicula, mattis nibh ac, semper mi.</p>
+        <p>If you need to get in touch with us about anything, you can email:</p>
+
+        <p style="font-weight: 500; text-align: center;">wedding@conorandsteph.com</p>
 
       </div>
 
