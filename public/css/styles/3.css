@@ -130,7 +130,13 @@ h3 {
 }
 
 .invite-footer img {
-    width: 100px;
+    width: 6.25rem;
+}
+
+@media screen and (max-width: 767px) {
+    .invite-footer {
+        background-size: 210px 210px;
+    }
 }
 
 /******************************************/
@@ -193,13 +199,11 @@ h3 {
     }
 }
 
-
 @media screen and (max-width: 568px) {
     .invite-heading p {
         font-size: 2rem;
     }
 }
-
 
 .bg-paper hr.rule {
     overflow: visible; /* For IE */
