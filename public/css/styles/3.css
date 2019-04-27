@@ -188,12 +188,15 @@ h3 {
         padding: 2.73rem 0 2.27rem 0;
     }
 
-    .invite-heading p {
-        font-size: 2rem;
-    }
-
     .invite-heading .hero .name {
         font-size: 3.27rem;
+    }
+}
+
+
+@media screen and (max-width: 568px) {
+    .invite-heading p {
+        font-size: 2rem;
     }
 }
 
