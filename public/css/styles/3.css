@@ -425,6 +425,7 @@ a.button:hover {
     font-size: 2.4rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
+    line-height: 1.1;
 }
 
 .rsvp a,
@@ -668,6 +669,23 @@ a.button:hover {
     background-position: center;
 }
 
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
 
 /***********************************************/
 

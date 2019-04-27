@@ -320,6 +320,14 @@
 
       </div>
 
+      <div class="col-narrow desktop-only">
+
+        <div class="rsvp">
+          RSVP before 22 June 2019
+        </div>
+
+      </div>
+
       <div class="col-narrow">
 
         <h3>Contact Details</h3>
@@ -330,11 +338,11 @@
 
       </div>
 
-      <div class="col-narrow">
+      <div class="col-narrow mobile-only">
 
-        <h3>Getting to the Venue</h3>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet laoreet neque, at convallis velit. Nam vestibulum eros in mauris commodo vehicula. Nullam aliquet vehicula enim in faucibus. Quisque eget mattis quam. Maecenas quis magna consequat, suscipit libero id, aliquam urna. Aliquam consectetur ultrices enim, vel pharetra lectus varius eget. Morbi in diam id nibh pretium sagittis. Nam in mi vehicula, mattis nibh ac, semper mi.</p>
+        <div class="rsvp">
+          RSVP before 22 June 2019
+        </div>
 
       </div>
 
