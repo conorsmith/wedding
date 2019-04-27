@@ -849,7 +849,7 @@ a.button:hover {
 
 /* ================ Timeline Media Queries ================ */
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 676px) {
 
     .timeline {
         width: 100%;
