@@ -80,13 +80,11 @@
 
         </div>
 
-        <div class="col-wide">
+        <div class="col-wide col-wide-rules">
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet laoreet neque, at convallis velit. Nam vestibulum eros in mauris commodo vehicula. Nullam aliquet vehicula enim in faucibus. Quisque eget mattis quam. Maecenas quis magna consequat, suscipit libero id, aliquam urna. Aliquam consectetur ultrices enim, vel pharetra lectus varius eget. Morbi in diam id nibh pretium sagittis. Nam in mi vehicula, mattis nibh ac, semper mi.</p>
+          <p>Conor and Stephanie met through the Students' Union when they were both enrolled at Trinity College. Steph was studying physiotherapy and Conor was studying computer science. Steph remembers the day they first met, Conor doesn't. After five years of friendship Conor asked Steph to come for a drink in the Porterhouse and she said yes. The rest of the story of how they officially moved beyond friends involves a move to Cork, a taxi to Inchicore in late December, a photoshopped baby and an eventful night in Doyle's. Precisely seven and half years on from the Doyle's Donnybrook they're getting married and would like you to join them for what they're hoping will basically be a really good party at which Steph is wearing an especially nice dress and there's a whole bunch of free food.</p>
 
-          <p>Aenean facilisis ac neque non cursus. Aenean nisl tortor, elementum sed elementum at, condimentum non nulla. Nunc aliquet imperdiet iaculis. Duis accumsan, magna vel porttitor tempor, nisl nulla imperdiet mi, et cursus ligula sapien molestie libero.</p>
-
-          <p>Curabitur finibus consequat magna, non pulvinar quam hendrerit condimentum. Etiam commodo at turpis non laoreet. Cras sed turpis ac arcu placerat rhoncus. Praesent commodo blandit odio. Curabitur eleifend gravida aliquam. Sed id lorem imperdiet, faucibus dui et, porttitor velit.</p>
+          <p>So please, join us at Palmerstown House Estate for a day of food, dancing, drink, love and (with a bit of luck and whatever the humanist equivalent of the child of prague is) some sun. We hope you have a wonderful day with us.</p>
 
         </div>
 

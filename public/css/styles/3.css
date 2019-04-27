@@ -391,6 +391,10 @@ a.button:hover {
     width: 740px;
 }
 
+.col-wide.col-wide-rules {
+    width: 600px;
+}
+
 .bg-paper {
     background-image: url("/img/clean-textile.png");
     background-color: #ffffff;
