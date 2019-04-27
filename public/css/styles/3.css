@@ -597,6 +597,7 @@ a.button:hover {
 
 .bg-paper.bg-flush {
     padding-top: 0;
+    padding-bottom: 0;
 }
 
 .bg-paper a,
