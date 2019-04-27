@@ -198,27 +198,105 @@
 
   </div>
 
-  <div class="bg-paper">
+  <div class="bg-paper bg-flush">
 
-    <div class="container clearfix">
 
-      <div class="col-wide">
+    <div class="left-border-holder">
+      <div class="left-border"></div>
+    </div>
 
-        <h3>The Big Day</h3>
+    <div class="right-border-holder">
+      <div class="right-border"></div>
+    </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet laoreet neque, at convallis velit. Nam vestibulum eros in mauris commodo vehicula. Nullam aliquet vehicula enim in faucibus. Quisque eget mattis quam. Maecenas quis magna consequat, suscipit libero id, aliquam urna. Aliquam consectetur ultrices enim, vel pharetra lectus varius eget. Morbi in diam id nibh pretium sagittis. Nam in mi vehicula, mattis nibh ac, semper mi.</p>
+    <div class="timeline-wrapper">
 
-        <p>Aenean facilisis ac neque non cursus. Aenean nisl tortor, elementum sed elementum at, condimentum non nulla. Nunc aliquet imperdiet iaculis. Duis accumsan, magna vel porttitor tempor, nisl nulla imperdiet mi, et cursus ligula sapien molestie libero. Curabitur finibus consequat magna, non pulvinar quam hendrerit condimentum. Etiam commodo at turpis non laoreet. Cras sed turpis ac arcu placerat rhoncus. Praesent commodo blandit odio. Curabitur eleifend gravida aliquam. Sed id lorem imperdiet, faucibus dui et, porttitor velit.</p>
+      <ul class="timeline">
 
-      </div>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">Ceremony</span>
+              <span class="time-wrapper"><span class="time">3pm</span></span>
+            </div>
+          </div>
+        </li>
 
-      <div class="col-narrow">
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Reception</span>
+              <span class="time-wrapper"><span class="time">3.30pm</span></span>
+            </div>
+            <div class="desc">Drinks &amp; Canap&eacute;s</div>
+          </div>
+        </li>
 
-        <div class="photo photo-right">
-          <img src="/img/splash-accommodation.jpg" style="width: 300px;">
-        </div>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">Speeches</span>
+              <span class="time-wrapper"><span class="time">5.30pm</span></span>
+            </div>
+          </div>
+        </li>
 
-      </div>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Meal Call</span>
+              <span class="time-wrapper"><span class="time">6pm</span></span>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">Dinner is Served</span>
+              <span class="time-wrapper"><span class="time">6.30pm</span></span>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Cake Cutting</span>
+              <span class="time-wrapper"><span class="time">9pm</span></span>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">First Dance</span>
+              <span class="time-wrapper"><span class="time">9.30pm</span></span>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Midnight Feast</span>
+              <span class="time-wrapper"><span class="time">12am</span></span>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">The Wee Hours</span>
+              <span class="time-wrapper"><span class="time">12.30am</span></span>
+            </div>
+            <div class="desc">Dancing to your heart’s content...</div>
+          </div>
+        </li>
+
+      </ul>
 
     </div>
 
