@@ -402,6 +402,12 @@ a.button:hover {
     font-weight: 300;
 }
 
+.bg-paper a,
+.bg-paper a:visited,
+.bg-paper a:active {
+    color: #009ba3;
+}
+
 .bg-photo {
     padding-top: 40px;
     padding-bottom: 40px;

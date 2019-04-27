@@ -132,9 +132,15 @@
 
         <h3>Accommodation</h3>
 
-        <p>Palmerstown House Estate is located outside Johnstown, Co Kildare. The venue is quite close to both Sallins and Naas.</p>
+        <p>Accommodation will not be available on site but there are many hotels in nearby Naas. Alternatively a taxi to Dublin city centre should cost approximately &euro;60-75.</p>
 
-        <p>Contact such and such in the so and so hotel...</p>
+        <p>Lawlors Hotel, Naas<br><a href="https://www.lawlors.ie/" target="_blank">www.lawlors.ie</a> / 045-906444</p>
+
+        <p>The Ospray, Naas<br><a href="https://www.ospreyhotel.ie/" target="_blank">www.ospreyhotel.ie</a> / 045-881111</p>
+
+        <p>Killashee House, Naas<br><a href="https://www.killasheehotel.com/" target="_blank">www.killasheehotel.com</a> / 045-879277</p>
+
+        <p>The Westgrove, Clane<br><a href="https://www.westgrovehotel.com/" target="_blank">www.westgrovehotel.com</a> / 045-989900</p>
 
       </div>
 
