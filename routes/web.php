@@ -20,6 +20,10 @@ Route::get("/invite/{id}", GetInvite::class);
 Route::middleware(['auth.basic'])->group(function () {
 
     Route::get("/new-splash", function () {
+        return redirect("/preview-landing");
+    });
+
+    Route::get("/preview-landing", function () {
 
         $weddingDate = new \Carbon\Carbon("2019-08-18 15:00:00", "Europe/Dublin");
         $now = new \Carbon\Carbon();
@@ -33,7 +37,7 @@ Route::middleware(['auth.basic'])->group(function () {
             'seconds' => $interval->seconds,
         ];
 
-        return view('new-splash', [
+        return view('landing', [
             'style'             => 3,
             'countdown'         => $countdown,
             'isCountdownActive' => $weddingDate->isFuture(),
