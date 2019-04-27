@@ -466,6 +466,12 @@ a.button:hover {
     font-weight: 300;
 }
 
+@media screen and (max-width: 768px) {
+    .bg-paper {
+        background-size: 210px 210px;
+    }
+}
+
 .bg-paper.bg-flush {
     padding-top: 0;
 }
