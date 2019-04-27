@@ -306,7 +306,7 @@
 
   </div>
 
-  <div class="bg-photo bg-estate">
+  <div class="bg-photo bg-hall misc-info">
 
     <div class="container clearfix">
 
