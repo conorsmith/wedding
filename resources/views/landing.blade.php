@@ -72,19 +72,23 @@
 
       <div class="clearfix">
 
-        <div class="col-narrow">
+        <div class="col-narrow clearfix">
 
           <div class="photo photo-left">
-            <img src="/img/splash-engagement.jpg" style="width: 300px;">
+            <img src="/img/splash-engagement.jpg">
           </div>
 
         </div>
 
-        <div class="col-wide col-wide-rules">
+        <div class="col-wide">
 
-          <p>Conor and Stephanie met through the Students' Union when they were both enrolled at Trinity College. Steph was studying physiotherapy and Conor was studying computer science. Steph remembers the day they first met, Conor doesn't. After five years of friendship Conor asked Steph to come for a drink in the Porterhouse and she said yes. The rest of the story of how they officially moved beyond friends involves a move to Cork, a taxi to Inchicore in late December, a photoshopped baby and an eventful night in Doyle's. Precisely seven and half years on from the Doyle's Donnybrook they're getting married and would like you to join them for what they're hoping will basically be a really good party at which Steph is wearing an especially nice dress and there's a whole bunch of free food.</p>
+          <div class="align-with-rules">
 
-          <p>So please, join us at Palmerstown House Estate for a day of food, dancing, drink, love and (with a bit of luck and whatever the humanist equivalent of the child of prague is) some sun. We hope you have a wonderful day with us.</p>
+            <p>Conor and Stephanie met through the Students' Union when they were both enrolled at Trinity College. Steph was studying physiotherapy and Conor was studying computer science. Steph remembers the day they first met, Conor doesn't. After five years of friendship Conor asked Steph to come for a drink in the Porterhouse and she said yes. The rest of the story of how they officially moved beyond friends involves a move to Cork, a taxi to Inchicore in late December, a photoshopped baby and an eventful night in Doyle's. Precisely seven and half years on from the Doyle's Donnybrook they're getting married and would like you to join them for what they're hoping will basically be a really good party at which Steph is wearing an especially nice dress and there's a whole bunch of free food.</p>
+
+            <p>So please, join us at Palmerstown House Estate for a day of food, dancing, drink, love and (with a bit of luck and whatever the humanist equivalent of the child of prague is) some sun. We hope you have a wonderful day with us.</p>
+
+          </div>
 
         </div>
 
