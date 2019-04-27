@@ -216,7 +216,9 @@
 
         <h3>Dress Code</h3>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet laoreet neque, at convallis velit. Nam vestibulum eros in mauris commodo vehicula. Nullam aliquet vehicula enim in faucibus. Quisque eget mattis quam. Maecenas quis magna consequat, suscipit libero id, aliquam urna. Aliquam consectetur ultrices enim, vel pharetra lectus varius eget. Morbi in diam id nibh pretium sagittis. Nam in mi vehicula, mattis nibh ac, semper mi.</p>
+        <p style="font-weight: 500; text-align: center;">Festive Attire</p>
+
+        <p>Translation: The usual cocktail-style wedding attire but we encourage you to add a splash of colour, print or sparkle. <a href="https://www.racked.com/2017/6/9/15676848/wedding-dress-codes-black-tie-cocktail" target="_blank">See here for hints.</a></p>
 
       </div>
 
