@@ -151,7 +151,7 @@
       <div class="col-narrow">
 
         <div class="photo photo-right">
-          <img src="/img/splash-accommodation.jpg" style="width: 300px;">
+          <img src="/img/splash-accommodation.jpg">
         </div>
 
       </div>

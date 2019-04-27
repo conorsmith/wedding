@@ -88,6 +88,7 @@ h3 {
 
 .invite-top.bg-paper {
     padding-top: 0;
+    padding-bottom: 0;
 }
 
 .invite-top.half-bg::after {
@@ -355,6 +356,7 @@ a.button:hover {
 
     .details .col-narrow {
         width: auto;
+        float: left;
     }
 
     .details .photo {
@@ -506,6 +508,15 @@ a.button:hover {
     }
 }
 
+@media screen and (max-width: 991px) {
+    .photo {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        float: none;
+    }
+}
+
 @media screen and (max-width: 330px) {
     .photo {
         width: 100%;
@@ -548,6 +559,18 @@ a.button:hover {
     }
 }
 
+@media screen and (max-width: 991px) {
+    .col-narrow {
+        float: none;
+        width: 100%;
+    }
+
+    .col-wide {
+        float: none;
+        width: 100%;
+    }
+}
+
 .subcol {
     float: left;
     width: 48%;
@@ -562,6 +585,7 @@ a.button:hover {
     background-image: url("/img/clean-textile.png");
     background-color: #ffffff;
     padding-top: 3rem;
+    padding-bottom: 3rem;
     font-weight: 300;
 }
 
