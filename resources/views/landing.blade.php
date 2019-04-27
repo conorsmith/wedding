@@ -323,7 +323,7 @@
       <div class="col-narrow desktop-only">
 
         <div class="rsvp">
-          RSVP before 22 June 2019
+          RSVP before 22&nbsp;June&nbsp;2019
         </div>
 
       </div>
@@ -341,7 +341,7 @@
       <div class="col-narrow mobile-only">
 
         <div class="rsvp">
-          RSVP before 22 June 2019
+          RSVP before 22&nbsp;June&nbsp;2019
         </div>
 
       </div>
