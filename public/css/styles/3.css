@@ -776,6 +776,7 @@ a.button:hover {
     padding: 6px 10px;
     border-radius: 5px;
 
+    font-family: Overlock, sans-serif;
     font-weight: 600;
     text-align: left;
 }
