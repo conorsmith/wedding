@@ -515,6 +515,10 @@ a.button:hover {
         display: block;
         float: none;
     }
+
+    .photo.photo-desktop {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 330px) {
@@ -581,6 +585,27 @@ a.button:hover {
     margin-right: 20px;
 }
 
+.map-link {
+    text-align: right;
+    margin-top: 70px;
+}
+
+@media screen and (max-width: 767px) {
+    .subcol {
+        float: none;
+        width: 100%;
+    }
+
+    .subcol.subcol-left {
+        margin-right: 0;
+    }
+
+    .map-link {
+        text-align: center;
+        margin-top: auto;
+    }
+}
+
 .bg-paper {
     background-image: url("/img/clean-textile.png");
     background-color: #ffffff;
@@ -589,7 +614,7 @@ a.button:hover {
     font-weight: 300;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .bg-paper {
         background-size: 210px 210px;
     }

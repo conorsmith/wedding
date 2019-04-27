@@ -166,9 +166,9 @@
 
       <div class="col-narrow">
 
-        <div class="photo photo-left">
+        <div class="photo photo-left photo-desktop">
           <a href="https://goo.gl/maps/RDBCnHRFoAC2chnw5" target="_blank">
-            <img src="/img/map.png" style="width: 300px;">
+            <img src="/img/map.png">
           </a>
         </div>
 
@@ -190,7 +190,7 @@
 
             <p><strong>From the Red Cow, Dublin</strong><br>Take the N7 for Limerick/Cork/Waterford, travel south for 19km and take exit 8 for Johnstown/Kill South. Take the first exit off the roundabout and travel 500m along the boundary of Palmerstown House Estate until you reach the entrance on your right. The wedding will take place in the Manor House, please follow signage when you enter the estate.</p>
 
-            <p style="text-align: right; margin-top: 70px;"><a href="https://goo.gl/maps/RDBCnHRFoAC2chnw5" target="_blank">View the venue on Google Maps</a></p>
+            <p class="map-link"><a href="https://goo.gl/maps/RDBCnHRFoAC2chnw5" target="_blank">View the venue on Google Maps</a></p>
 
           </div>
 
