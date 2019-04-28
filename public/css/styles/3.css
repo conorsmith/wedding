@@ -19,6 +19,7 @@ html {
 
     p {
         font-size: 1.16rem;
+        margin-bottom: 1.16rem;
     }
 }
 
@@ -596,9 +597,17 @@ a.button:hover {
         width: 100%;
     }
 
+    .col-stacked {
+        margin-bottom: 3rem;
+    }
+
     .col-wide {
         float: none;
         width: 100%;
+    }
+
+    .bg-paper.bg-stacked-photo {
+        padding-bottom: 1rem;
     }
 }
 
@@ -609,7 +618,7 @@ a.button:hover {
 }
 
 .subcol.subcol-left {
-    margin-right: 20px;
+    margin-right: 4%;
 }
 
 .map-link {
@@ -625,6 +634,7 @@ a.button:hover {
 
     .subcol.subcol-left {
         margin-right: 0;
+        margin-bottom: 2rem;
     }
 
     .map-link {
@@ -677,13 +687,13 @@ a.button:hover {
 }
 
 .bg-manor-house {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown2.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/img/palmerstown2.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .bg-estate {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/img/palmerstown1.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/img/palmerstown1.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -724,12 +734,18 @@ a.button:hover {
     background: #00000010;
 
     color: rgb(50,50,50);
-    font-size: 112.5%;
+    font-size: 1.125rem;
     line-height: 1.6em;
 }
 
 .timeline-wrapper, .timeline-wrapper ::before, .timeline-wrapper ::after {
     box-sizing: content-box;
+}
+
+@media screen and (max-width: 568px) {
+    .timeline-wrapper {
+        font-size: 1.25rem;
+    }
 }
 
 /* ================ The Timeline ================ */
@@ -864,7 +880,7 @@ a.button:hover {
     display: inline;
 
     line-height: 1em;
-    font-size: 0.66666em;
+    font-size: 0.8rem;
     color: #009ba3;
     vertical-align: middle;
 }
@@ -886,7 +902,7 @@ a.button:hover {
 .desc {
     margin: 1em 0.75em 0 0;
 
-    font-size: 0.77777em;
+    font-size: 1rem;
     font-style: italic;
     line-height: 1.5em;
 }

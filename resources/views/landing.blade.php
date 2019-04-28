@@ -128,7 +128,7 @@
 
   </div>
 
-  <div class="bg-paper">
+  <div class="bg-paper bg-stacked-photo">
 
     <div class="container clearfix">
 
@@ -318,7 +318,7 @@
 
     <div class="container clearfix">
 
-      <div class="col-narrow">
+      <div class="col-narrow col-stacked">
 
         <h3>Dress Code</h3>
 
@@ -336,7 +336,7 @@
 
       </div>
 
-      <div class="col-narrow">
+      <div class="col-narrow col-stacked">
 
         <h3>Contact Details</h3>
 
