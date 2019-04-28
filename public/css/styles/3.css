@@ -551,6 +551,25 @@ a.button:hover {
     transform: rotate(2deg);
 }
 
+.photo.photo-timeline-left {
+    position: absolute;
+    top: 4rem;
+    left: 3rem;
+}
+
+.photo.photo-timeline-right {
+    position: absolute;
+    bottom: 0;
+    right: 3rem;
+}
+
+@media screen and (max-width: 1100px) {
+    .photo.photo-timeline-left,
+    .photo.photo-timeline-right {
+        display: none;
+    }
+}
+
 .col-narrow {
     float: left;
     width: 33%;

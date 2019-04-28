@@ -202,7 +202,7 @@
 
   </div>
 
-  <div class="bg-paper bg-flush">
+  <div class="bg-paper bg-flush" style="position: relative;">
 
 
     <div class="left-border-holder">
@@ -211,6 +211,14 @@
 
     <div class="right-border-holder">
       <div class="right-border"></div>
+    </div>
+
+    <div class="photo photo-left photo-timeline-left">
+      <img src="/img/splash-engagement.jpg">
+    </div>
+
+    <div class="photo photo-right photo-timeline-right">
+      <img src="/img/splash-engagement.jpg">
     </div>
 
     <div class="timeline-wrapper">
