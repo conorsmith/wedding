@@ -232,32 +232,75 @@ h3 {
     }
 }
 
-.button-container {
+.rsvp-form {
     width: 44rem;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+
+.attending-container {
+    margin-bottom: 2rem;
+}
+
+.submit-container {
+    margin-bottom: 2rem;
+    width: 45%;
     margin: 0 auto;
 }
 
-a.button {
+.bg-paper a.button,
+.bg-paper a.button:visited,
+.bg-paper a.button:active {
     display: block;
-    float: left;
-    width: 20rem;
     text-align: center;
     font-size: 1.6rem;
-    font-weight: 200;
-    background: #fff;
-    border-radius: 0.6rem;
-    padding: 1rem;
-    margin: 0 1rem;
-    color: #000;
+    color: #333;
     text-decoration: none;
     transition: 0.3s;
-    -webkit-box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
-    box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+    background: rgb(252,252,252);
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-family: Overlock, sans-serif;
+    font-weight: 600;
 }
 
 a.button:hover {
     background-color: #009ba3;
+    color: #fff;
+}
+
+.bg-paper .attending-container a.button,
+.bg-paper .attending-container a.button:visited,
+.bg-paper .attending-container a.button:active {
+    float: left;
+    width: 45%;
+    margin: 0 2.5%;
+}
+
+.bg-paper .submit-container a.button,
+.bg-paper .submit-container a.button:visited,
+.bg-paper .submit-container a.button:active {
+    width: 100%;
+}
+
+.text-input {
+    margin-bottom: 2rem;
+}
+
+.text-input label {
+    display: block;
+    font-weight: 400;
+}
+
+.text-input textarea {
+    width: 100%;
+    border-color: #ccc;
+    border-radius: 0.4rem;
+    resize: none;
+    outline: none;
 }
 
 /**********************************/
@@ -420,12 +463,10 @@ a.button:hover {
 
 .rsvp {
     padding: 2rem 0 1rem 0;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
+    font-family: Overlock, sans-serif;
+    font-weight: 600;
     text-align: center;
     font-size: 2.4rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
     line-height: 1.1;
 }
 

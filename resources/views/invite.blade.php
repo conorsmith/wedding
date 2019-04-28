@@ -106,23 +106,37 @@
 
 </div>
 
-<div class="bg-paper">
+<div class="bg-paper bg-flush">
 
   <div class="container">
 
-    <form method="POST">
+    <form method="POST" class="rsvp-form">
 
-    <div class="button-container clearfix">
+      <div class="attending-container clearfix">
 
-      <a href="#" class="button">
-        {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
-      </a>
+        <a href="#" class="button">
+          {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
+        </a>
 
-      <a href="#" class="button">
-        {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
-      </a>
+        <a href="#" class="button">
+          {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
+        </a>
 
-    </div>
+      </div>
+
+      <div class="text-input">
+
+        <label>If you have any dietary requirements, please let us know</label>
+
+        <textarea rows="3" name="dietary-requirements"></textarea>
+
+      </div>
+
+      <div class="submit-container clearfix">
+
+        <a href="#" class="button">R&eacute;spondez</a>
+
+      </div>
 
     </form>
 
