@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get("/invite/{id}", GetInvite::class);
 
+Route::post("/rsvp/{id}", PostRsvp::class);
+
 Route::middleware(['auth.basic'])->group(function () {
 
     Route::get("/new-splash", function () {

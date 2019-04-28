@@ -100,35 +100,61 @@
 
   <div class="container">
 
-    <form method="POST" class="rsvp-form">
+    @if(is_null($response))
 
-      <div class="attending-container clearfix">
+      <form method="POST" action="/rsvp/{{ $invite ? $invite->id : "" }}" class="rsvp-form" id="rsvp-form">
 
-        <a href="#" class="button">
-          {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
-        </a>
+        {{ csrf_field() }}
+        <input type="hidden" name="key" value="{{ $invite ? $invite->access_key : "" }}" />
 
-        <a href="#" class="button">
-          {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
-        </a>
+        <div class="attending-container clearfix">
+
+          <a href="#" class="button" id="attending">
+            {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
+          </a>
+
+          <a href="#" class="button" id="not-attending">
+            {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
+          </a>
+
+          <input type="hidden" name="attending" id="attending-input" value="" />
+
+        </div>
+
+        <div class="text-input">
+
+          <label>If you have any dietary requirements, please let us know</label>
+
+          <textarea rows="3" name="dietary-requirements"></textarea>
+
+        </div>
+
+        <div class="submit-container clearfix">
+
+          <a href="#" class="button" id="submit">R&eacute;spondez</a>
+
+        </div>
+
+      </form>
+
+    @else
+
+      <div class="responded" id="responded">
+        <p>Thank you for responding!</p>
+
+        @if($response->attending)
+          <p>We can't wait to see you on the day!</p>
+
+          <p class="contact">You can find more details about the day on <a href="/">the main page</a></p>
+        @else
+          <p>Sorry you can't make it!</p>
+        @endif
+
+        <p class="contact">Remember, if you need to get in touch with us you can email <strong>wedding@conorandsteph.com</strong></p>
 
       </div>
 
-      <div class="text-input">
-
-        <label>If you have any dietary requirements, please let us know</label>
-
-        <textarea rows="3" name="dietary-requirements"></textarea>
-
-      </div>
-
-      <div class="submit-container clearfix">
-
-        <a href="#" class="button">R&eacute;spondez</a>
-
-      </div>
-
-    </form>
+    @endif
 
     <hr class="rule" style="margin-bottom: 0;">
 
@@ -142,7 +168,43 @@
 
 </div>
 
-<script> </script>
+<script>
+    document.getElementById("attending").onclick = function (e) {
+        e.preventDefault();
+        setAttendingInput("1");
+    };
+
+    document.getElementById("not-attending").onclick = function (e) {
+        e.preventDefault();
+        setAttendingInput("0");
+    };
+
+    function setAttendingInput(value) {
+        document.getElementById("attending-input").value = value;
+
+        if (value === "1") {
+            document.getElementById("attending").classList.add("button-active");
+            document.getElementById("not-attending").classList.remove("button-active");
+        } else if (value === "0") {
+            document.getElementById("attending").classList.remove("button-active");
+            document.getElementById("not-attending").classList.add("button-active");
+        }
+    }
+
+    document.getElementById("submit").onclick = function (e) {
+        e.preventDefault();
+
+        var attending = document.getElementById("attending-input").value;
+
+        if (attending !== "1" && attending !== "0") {
+            alert("Please let us know whether or not you will be attending");
+            return;
+        }
+
+        document.getElementById("rsvp-form").submit();
+
+    };
+</script>
 
 </body>
 </html>

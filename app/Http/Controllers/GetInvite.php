@@ -5,6 +5,7 @@ namespace ConorSmith\Wedding\Http\Controllers;
 
 use Auth;
 use ConorSmith\Wedding\Invite;
+use ConorSmith\Wedding\Response;
 use Illuminate\Http\Request;
 
 final class GetInvite
@@ -16,8 +17,9 @@ final class GetInvite
         }
 
         return view('invite', [
-            'invite' => Invite::find($id),
-            'style'  => $request->get('style', "3"),
+            'invite'   => Invite::find($id),
+            'response' => Response::where('invite', $id)->first(),
+            'style'    => $request->get('style', "3"),
         ]);
     }
 
