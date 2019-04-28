@@ -331,7 +331,7 @@
       <div class="col-narrow desktop-only">
 
         <div class="rsvp">
-          RSVP before 22&nbsp;June&nbsp;2019
+          RSVP before {{ $rsvpDate->format("d") }}&nbsp;{{ $rsvpDate->format("F") }}&nbsp;{{ $rsvpDate->format("Y") }}
         </div>
 
       </div>
@@ -349,7 +349,7 @@
       <div class="col-narrow mobile-only">
 
         <div class="rsvp">
-          RSVP before 22&nbsp;June&nbsp;2019
+          RSVP before {{ $rsvpDate->format("d") }}&nbsp;{{ $rsvpDate->format("F") }}&nbsp;{{ $rsvpDate->format("Y") }}
         </div>
 
       </div>

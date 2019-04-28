@@ -41,6 +41,7 @@ Route::middleware(['auth.basic'])->group(function () {
             'style'             => 3,
             'countdown'         => $countdown,
             'isCountdownActive' => $weddingDate->isFuture(),
+            'rsvpDate'          => new \Carbon\Carbon("2019-06-22 00:00:00", "Europe/Dublin"),
         ]);
     });
 
