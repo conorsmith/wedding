@@ -170,9 +170,15 @@ h3 {
 }
 
 .invite-heading .lead .note {
-    width: 36rem;
+    width: 65%;
     margin: 0 auto;
-    line-height: 1;
+    line-height: 1.1;
+}
+
+@media screen and (max-width: 767px) {
+    .invite-heading .lead .note {
+        width: 80%;
+    }
 }
 
 .invite-heading .hero {
@@ -201,8 +207,12 @@ h3 {
 }
 
 @media screen and (max-width: 568px) {
-    .invite-heading p {
+    .invite-heading .hero .and, .invite-heading .hero .intro {
         font-size: 2rem;
+    }
+
+    .invite-heading .lead p {
+        font-size: 1.4rem;
     }
 }
 
@@ -238,6 +248,12 @@ h3 {
     padding-top: 3rem;
 }
 
+@media screen and (max-width: 991px) {
+    .rsvp-form {
+        width: 100%;
+    }
+}
+
 .attending-container {
     margin-bottom: 2rem;
 }
@@ -246,6 +262,12 @@ h3 {
     margin-bottom: 2rem;
     width: 45%;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 568px) {
+    .submit-container {
+        width: 100%;
+    }
 }
 
 .bg-paper a.button,
@@ -284,6 +306,24 @@ a.button:hover {
 .bg-paper .submit-container a.button:visited,
 .bg-paper .submit-container a.button:active {
     width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .bg-paper .attending-container a.button,
+    .bg-paper .attending-container a.button:visited,
+    .bg-paper .attending-container a.button:active {
+        float: none;
+        width: 60%;
+        margin: 0 auto 1rem;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .bg-paper .attending-container a.button,
+    .bg-paper .attending-container a.button:visited,
+    .bg-paper .attending-container a.button:active {
+        width: 100%;
+    }
 }
 
 .text-input {
