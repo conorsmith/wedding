@@ -204,13 +204,20 @@
 
   <div class="bg-paper bg-flush" style="position: relative;">
 
-
-    <div class="left-border-holder">
-      <div class="left-border"></div>
+    <div class="vine-border vine-border-top-left">
+      <img src="/img/tealborder-left.png">
     </div>
 
-    <div class="right-border-holder">
-      <div class="right-border"></div>
+    <div class="vine-border vine-border-top-right">
+      <img src="/img/tealborder-left.png">
+    </div>
+
+    <div class="vine-border vine-border-bottom-left">
+      <img src="/img/tealborder-left.png">
+    </div>
+
+    <div class="vine-border vine-border-bottom-right">
+      <img src="/img/tealborder-left.png">
     </div>
 
     <div class="photo photo-left photo-timeline-left">

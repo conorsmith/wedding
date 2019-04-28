@@ -63,9 +63,53 @@ h3 {
     height: 300px;
 }
 
+.vine-border {
+    position: absolute;
+}
+
+.vine-border-top-left {
+    top: 0.625rem;
+    left: 0.625rem;
+}
+
+.vine-border-top-right {
+    top: 0.625rem;
+    right: 0.625rem;
+    -moz-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.vine-border-bottom-left {
+    bottom: 0.625rem;
+    left: 0.625rem;
+    -moz-transform: scale(1, -1);
+    -o-transform: scale(1, -1);
+    -webkit-transform: scale(1, -1);
+    transform: scale(1, -1);
+}
+
+.vine-border-bottom-right {
+    bottom: 0.625rem;
+    right: 0.625rem;
+    -moz-transform: scale(-1, -1);
+    -o-transform: scale(-1, -1);
+    -webkit-transform: scale(-1, -1);
+    transform: scale(-1, -1);
+}
+
+.vine-border img {
+    height: 230px;
+}
+
 @media screen and (max-width: 1520px) {
     .left-border, .right-border {
         background-size: 200px;
+    }
+
+    .vine-border img {
+        height: 140px;
     }
 }
 
@@ -73,11 +117,19 @@ h3 {
     .left-border, .right-border {
         background-size: 140px;
     }
+
+    .vine-border img {
+        height: 100px;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .left-border, .right-border {
         background-size: 100px;
+    }
+
+    .vine-border img {
+        height: 70px;
     }
 }
 
@@ -643,13 +695,27 @@ a.button:hover {
 .photo.photo-timeline-left {
     position: absolute;
     top: 4rem;
-    left: 3rem;
+    left: 8rem;
 }
 
 .photo.photo-timeline-right {
     position: absolute;
-    bottom: 0;
-    right: 3rem;
+    bottom: 2.5rem;
+    right: 8rem;
+}
+
+@media screen and (max-width: 1520px) {
+    .photo.photo-timeline-left {
+        position: absolute;
+        top: 4rem;
+        left: 3rem;
+    }
+
+    .photo.photo-timeline-right {
+        position: absolute;
+        bottom: 0;
+        right: 3rem;
+    }
 }
 
 @media screen and (max-width: 1100px) {
