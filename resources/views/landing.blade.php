@@ -237,10 +237,9 @@
         <li>
           <div class="direction-l">
             <div class="flag-wrapper">
-              <span class="flag">Reception</span>
+              <span class="flag">Canap&eacute;s Reception</span>
               <span class="time-wrapper"><span class="time">3.30pm</span></span>
             </div>
-            <div class="desc">Drinks &amp; Canap&eacute;s</div>
           </div>
         </li>
 
@@ -304,7 +303,6 @@
               <span class="flag">The Wee Hours</span>
               <span class="time-wrapper"><span class="time">12.30am</span></span>
             </div>
-            <div class="desc">Dancing to your heart’s content...</div>
           </div>
         </li>
 
