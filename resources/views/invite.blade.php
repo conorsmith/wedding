@@ -88,16 +88,6 @@
 
   <hr class="rule">
 
-  <!--
-  <div class="rsvp-cta">
-
-    <a href="#">RSVP</a>
-
-    <p>Before 22 June 2019</p>
-
-  </div>
-  -->
-
   <div class="rsvp">
     RSVP before 22 June 2019
   </div>
