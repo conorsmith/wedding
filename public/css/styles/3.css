@@ -230,14 +230,20 @@ h3 {
 
 
 @media screen and (max-width: 1100px) {
-    .bg-paper hr.rule {
+    .bg-paper.invite-top hr.rule {
         width: 600px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .bg-paper hr.rule {
+        width: 100%;
     }
 }
 
 
 @media screen and (max-width: 768px) {
-    .bg-paper hr.rule {
+    .bg-paper.invite-top hr.rule {
         width: 80%;
     }
 }
