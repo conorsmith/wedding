@@ -225,7 +225,7 @@
     </div>
 
     <div class="photo photo-right photo-timeline-right">
-      <img src="/img/photo-timeline-b@1x.jpg" srcset="/img/photo-timeline-b@2x.jpg 2x, /img/photo-timeline-b@3x.jpg 3x">
+      <img src="/img/photo-timeline-c@1x.jpg" srcset="/img/photo-timeline-c@2x.jpg 2x, /img/photo-timeline-c@3x.jpg 3x">
     </div>
 
     <div class="timeline-wrapper">
