@@ -31,44 +31,15 @@ h3 {
     max-width: 920px;
 }
 
-.left-border-holder {
-    width: 100%;
-    height: 300px;
-    position: absolute;
-    padding: 10px;
-}
-
-.left-border {
-    background-image: url('/img/tealborder-left.png');
-    background-repeat: no-repeat;
-    background-size: 320px;
-    background-position: top left;
-    width: 100%;
-    height: 300px;
-}
-
-.right-border-holder {
-    width: 100%;
-    height: 300px;
-    position: absolute;
-    padding: 10px;
-}
-
-.right-border {
-    background-image: url('/img/tealborder-right.png');
-    background-repeat: no-repeat;
-    background-size: 320px;
-    background-position: top right;
-    width: 100%;
-    height: 300px;
-}
-
 .vine-border {
     position: absolute;
 }
 
-.vine-border-top-left {
+.vine-mobile-only {
     display: none;
+}
+
+.vine-border-top-left {
     top: 0.625rem;
     left: 0.625rem;
 }
@@ -92,7 +63,6 @@ h3 {
 }
 
 .vine-border-bottom-right {
-    display: none;
     bottom: 0.625rem;
     right: 0.625rem;
     -moz-transform: scale(-1, -1);
@@ -115,9 +85,8 @@ h3 {
     }
 }
 
-@media screen and (max-width: 1100px) {
-    .vine-border-bottom-right,
-    .vine-border-top-left {
+@media screen and (max-width: 1200px) {
+    .vine-mobile-only {
         display: block;
     }
 }
@@ -711,7 +680,7 @@ h3 {
 
 .photo.photo-timeline-left {
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     left: 8rem;
 }
 
@@ -724,7 +693,7 @@ h3 {
 @media screen and (max-width: 1520px) {
     .photo.photo-timeline-left {
         position: absolute;
-        top: 4rem;
+        top: 2.5rem;
         left: 3rem;
     }
 
@@ -735,7 +704,19 @@ h3 {
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
+    .photo.photo-timeline-left,
+    .photo.photo-timeline-right {
+        width: 270px;
+    }
+
+    .photo.photo-timeline-left img,
+    .photo.photo-timeline-right img {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
     .photo.photo-timeline-left,
     .photo.photo-timeline-right {
         display: none;
@@ -1085,11 +1066,6 @@ h3 {
     padding: 0.5rem 0.4rem;
     font-size: 1.125rem;
     font-weight: 500;
-    text-shadow:
-        -1px -1px 0 #fff8,
-        1px -1px 0 #fff8,
-        -1px 1px 0 #fff8,
-        1px 1px 0 #fff8;
 }
 
 .desc {

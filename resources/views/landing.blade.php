@@ -14,14 +14,14 @@
 
 <div>
 
-  <div class="invite-top bg-paper">
+  <div class="invite-top bg-paper" style="position: relative;">
 
-    <div class="left-border-holder">
-      <div class="left-border"></div>
+    <div class="vine-border vine-border-top-left">
+      <img src="/img/border@1x.png" srcset="/img/border@2x.png 2x, /img/border@3x.png 3x">
     </div>
 
-    <div class="right-border-holder">
-      <div class="right-border"></div>
+    <div class="vine-border vine-border-top-right">
+      <img src="/img/border@1x.png" srcset="/img/border@2x.png 2x, /img/border@3x.png 3x">
     </div>
 
     <div class="container container-heading">
@@ -204,20 +204,20 @@
 
   <div class="bg-paper bg-flush" style="position: relative;">
 
-    <div class="vine-border vine-border-top-left">
-      <img src="/img/tealborder-left.png">
+    <div class="vine-border vine-border-top-left vine-mobile-only">
+      <img src="/img/border@1x.png" srcset="/img/border@2x.png 2x, /img/border@3x.png 3x">
     </div>
 
     <div class="vine-border vine-border-top-right">
-      <img src="/img/tealborder-left.png">
+      <img src="/img/border@1x.png" srcset="/img/border@2x.png 2x, /img/border@3x.png 3x">
     </div>
 
     <div class="vine-border vine-border-bottom-left">
-      <img src="/img/tealborder-left.png">
+      <img src="/img/border@1x.png" srcset="/img/border@2x.png 2x, /img/border@3x.png 3x">
     </div>
 
-    <div class="vine-border vine-border-bottom-right">
-      <img src="/img/tealborder-left.png">
+    <div class="vine-border vine-border-bottom-right vine-mobile-only">
+      <img src="/img/border@1x.png" srcset="/img/border@2x.png 2x, /img/border@3x.png 3x">
     </div>
 
     <div class="photo photo-left photo-timeline-left">
