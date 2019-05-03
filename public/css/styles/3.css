@@ -486,6 +486,16 @@ h3 {
     width: 890px;
 }
 
+.align-with-rules {
+    margin-top: 33px;
+}
+
+@media screen and (max-width: 1200px) {
+    .align-with-rules {
+        margin-top: 0;
+    }
+}
+
 @media screen and (max-width: 991px) {
     .details hr.rule {
         width: 100%;
