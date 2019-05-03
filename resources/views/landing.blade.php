@@ -75,7 +75,7 @@
         <div class="col-narrow clearfix">
 
           <div class="photo photo-left">
-            <img src="/img/splash-engagement.jpg">
+            <img src="/img/photo-engagement@1x.jpg" srcset="/img/photo-engagement@2x.jpg 2x">
           </div>
 
         </div>
@@ -151,7 +151,7 @@
       <div class="col-narrow">
 
         <div class="photo photo-right">
-          <img src="/img/splash-accommodation.jpg">
+          <img src="/img/photo-accommodation@1x.jpg" srcset="/img/photo-accommodation@2x.jpg 2x">
         </div>
 
       </div>
@@ -221,11 +221,11 @@
     </div>
 
     <div class="photo photo-left photo-timeline-left">
-      <img src="/img/splash-engagement.jpg">
+      <img src="/img/photo-timeline-a@1x.jpg" srcset="/img/photo-timeline-a@2x.jpg 2x">
     </div>
 
     <div class="photo photo-right photo-timeline-right">
-      <img src="/img/splash-engagement.jpg">
+      <img src="/img/photo-timeline-b@1x.jpg" srcset="/img/photo-timeline-b@2x.jpg 2x">
     </div>
 
     <div class="timeline-wrapper">
