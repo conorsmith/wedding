@@ -163,7 +163,7 @@
 </div>
 
 <div class="invite-footer">
-  <img src="/img/lurcher.png">
+  <img src="/img/root@1x.png" srcset="/img/root@2x.png 2x, /img/root@3x.png 3x">
 </div>
 
 </div>
