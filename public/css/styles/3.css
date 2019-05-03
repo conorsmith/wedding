@@ -6,6 +6,7 @@ html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    overflow-x: hidden;
 }
 
 html {
@@ -839,21 +840,78 @@ h3 {
 }
 
 .bg-manor-house {
+    position: relative;
+    width: 100%;
+}
+
+.bg-manor-house::before {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/img/palmerstown2.jpg');
     background-size: cover;
     background-position: center;
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+    transform: scale(1.01);
+    z-index: -2000;
+}
+
+.bg-manor-house .container {
+    position: relative;
 }
 
 .bg-estate {
+    position: relative;
+    width: 100%;
+}
+
+.bg-estate::before {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/img/palmerstown1.jpg');
     background-size: cover;
     background-position: center;
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+    transform: scale(1.01);
+    z-index: -2000;
+}
+
+.bg-estate .container {
+    position: relative;
 }
 
 .bg-hall {
+    position: relative;
+    width: 100%;
+}
+
+.bg-hall::before {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/img/palmerstown3.jpg');
     background-size: cover;
     background-position: center;
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+    transform: scale(1.01);
+    z-index: -2000;
+}
+
+.bg-hall container {
+    position: relative;
 }
 
 .misc-info {
