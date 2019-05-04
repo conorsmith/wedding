@@ -9,14 +9,12 @@ final class SiteMode
 {
     private const SETTINGS = [
         'conorandsteph' => [
-            'contact_address'    => "wedding@conorandsteph.com",
-            'names'              => "Conor & Steph",
-            'html_encoded_names' => "Conor &amp; Steph",
+            'contact_address' => "wedding@conorandsteph.com",
+            'names'           => "Conor & Steph",
         ],
         'stephandconor' => [
-            'contact_address'    => "wedding@stephandconor.com",
-            'names'              => "Steph & Conor",
-            'html_encoded_names' => "Steph &amp; Conor",
+            'contact_address' => "wedding@stephandconor.com",
+            'names'           => "Steph & Conor",
         ],
     ];
 
@@ -40,10 +38,5 @@ final class SiteMode
     public function getNames(): string
     {
         return self::SETTINGS[$this->value]['names'];
-    }
-
-    public function getHtmlEncodedNames(): string
-    {
-        return self::SETTINGS[$this->value]['html_encoded_names'];
     }
 }

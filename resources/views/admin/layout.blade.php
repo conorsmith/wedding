@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="">
+@inject('siteMode', 'ConorSmith\Wedding\SiteMode')
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Conor & Steph</title>
+  <title>{{ $siteMode->getNames() }}'s Wedding Dashboard</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,7 +13,7 @@
 <body style="background: url('/img/cream_dust.png') repeat; padding-top: 70px;">
 
 <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg">
-  <a class="navbar-brand" href="#">Conor & Steph</a>
+  <a class="navbar-brand" href="#">{{ $siteMode->getNames() }}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
