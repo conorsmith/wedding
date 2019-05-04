@@ -40,7 +40,7 @@
         @endif
 
         @if($invite && $invite->note)
-          <p class="note">{{ $invite->note }}</p>
+          <p class="note">{!! nl2br($invite->note) !!}</p>
         @else
           <p class="note">Please join us for</p>
         @endif
