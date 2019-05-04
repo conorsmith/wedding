@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="">
+@inject('siteMode', 'ConorSmith\Wedding\SiteMode')
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Conor & Steph</title>
+  <title>{{ $siteMode->getNames() }}'s Wedding</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -346,7 +347,7 @@
 
         <p>If you need to get in touch with us about anything, you can email:</p>
 
-        <p style="font-weight: 500; text-align: center;">wedding@conorandsteph.com</p>
+        <p style="font-weight: 500; text-align: center;">{{ $siteMode->getContactAddress() }}</p>
 
       </div>
 

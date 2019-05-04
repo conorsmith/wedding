@@ -25,27 +25,7 @@ Route::middleware(['auth.basic'])->group(function () {
         return redirect("/preview-landing");
     });
 
-    Route::get("/preview-landing", function () {
-
-        $weddingDate = new \Carbon\Carbon("2019-08-18 15:00:00", "Europe/Dublin");
-        $now = new \Carbon\Carbon();
-
-        $interval = $weddingDate->diffAsCarbonInterval($now);
-
-        $countdown = [
-            'days' => $weddingDate->diffInDays($now),
-            'hours' => $interval->hours,
-            'minutes' => $interval->minutes,
-            'seconds' => $interval->seconds,
-        ];
-
-        return view('landing', [
-            'style'             => 3,
-            'countdown'         => $countdown,
-            'isCountdownActive' => $weddingDate->isFuture(),
-            'rsvpDate'          => new \Carbon\Carbon("2019-06-22 00:00:00", "Europe/Dublin"),
-        ]);
-    });
+    Route::get("/preview-landing", ShowLandingPage::class);
 
     Route::get('/preview-invite/{id?}', GetInvite::class);
 
