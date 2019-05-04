@@ -25,7 +25,7 @@ final class ShowLandingPage
             'style'             => 3,
             'countdown'         => $countdown,
             'isCountdownActive' => $weddingDate->isFuture(),
-            'rsvpDate'          => new Carbon("2019-06-22 00:00:00", "Europe/Dublin"),
+            'rsvpDate'          => config("wedding.rsvpDate"),
         ]);
     }
 }

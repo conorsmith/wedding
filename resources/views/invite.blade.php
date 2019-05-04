@@ -90,7 +90,7 @@
   <hr class="rule">
 
   <div class="rsvp">
-    RSVP before 22 June 2019
+    RSVP before {{ config("wedding.rsvpDate")->format("d F Y") }}
   </div>
 
 </div>
