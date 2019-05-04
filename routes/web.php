@@ -30,7 +30,11 @@ Route::middleware(['auth.basic'])->group(function () {
     Route::get('/preview-invite/{id?}', GetInvite::class);
 
     Route::get("/admin", function () {
-        return redirect("/admin/guests");
+        return view('admin.dashboard', [
+            'totalGuests' => \ConorSmith\Wedding\Guest::all()->count(),
+            'totalInvites' => \ConorSmith\Wedding\Guest::where('is_invited', true)->count(),
+            'totalSent' => \ConorSmith\Wedding\Invite::where('sent', true)->count(),
+        ]);
     });
 
     Route::get("/admin/guests", function () {
