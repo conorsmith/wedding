@@ -117,6 +117,20 @@
     </div>
 
     <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Send Physical Invite</label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="receive_physical" value="1" {{ $guest->receive_physical ? 'checked="checked"' : '' }}>
+          <label class="form-check-label">Yes</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="receive_physical" value="0" {{ !$guest->receive_physical ? 'checked="checked"' : '' }}>
+          <label class="form-check-label">No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
       <label class="col-sm-2 col-form-label">Personal Note</label>
       <div class="col-sm-10">
         <textarea class="form-control" name="invite_note" rows="3">{{ $guest->getInvite()->note }}</textarea>
