@@ -77,4 +77,9 @@ class Guest extends Model
 
         return $this->invite;
     }
+
+    public function hasResponded(): bool
+    {
+        return !is_null($this->getInvite()->response);
+    }
 }

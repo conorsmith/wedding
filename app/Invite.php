@@ -39,4 +39,9 @@ class Invite extends Model
     {
         return $this->belongsTo(Guest::class, 'guest_b');
     }
+
+    public function response()
+    {
+        return $this->hasOne(Response::class, 'invite');
+    }
 }

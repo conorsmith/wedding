@@ -36,10 +36,10 @@ final class PostRsvp
         }
 
         Response::create([
-            'id'                   => Uuid::uuid4(),
-            'invite'               => $id,
-            'attending'            => $validatedInput['attending'] === "1",
-            'dietary_requirements' => $validatedInput['dietary-requirements'],
+            'id'        => Uuid::uuid4(),
+            'invite'    => $id,
+            'attending' => $validatedInput['attending'] === "1",
+            'note'      => $validatedInput['note'],
         ]);
 
         return redirect("/invite/{$id}#responded");

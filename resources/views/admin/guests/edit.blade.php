@@ -134,15 +134,15 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Attending</label>
       <div class="col-sm-10">
-        <span class="badge badge-secondary">Yes</span>
-        <span class="badge badge-secondary">No</span>
+        <span class="badge badge-{{ $guest->getInvite()->response && $guest->getInvite()->response->attending ? "success" : "secondary" }}">Yes</span>
+        <span class="badge badge-{{ $guest->getInvite()->response && !$guest->getInvite()->response->attending ? "danger" : "secondary" }}">No</span>
       </div>
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Dietary Requirements</label>
+      <label class="col-sm-2 col-form-label">Response Note</label>
       <div class="col-sm-10">
-        <textarea class="form-control" name="dietary_requirements" rows="3" disabled></textarea>
+        <textarea class="form-control" name="note" rows="3" disabled>{{ $guest->hasResponded() ? $guest->getInvite()->response->note : "" }}</textarea>
       </div>
     </div>
 

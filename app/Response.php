@@ -10,7 +10,7 @@ class Response extends Model
         'id',
         'invite',
         'attending',
-        'dietary_requirements',
+        'note',
     ];
 
     public function getKeyType()
