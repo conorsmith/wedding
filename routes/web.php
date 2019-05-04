@@ -72,6 +72,60 @@ Route::middleware(['auth.basic'])->group(function () {
         return redirect("/admin/guests");
     });
 
+    Route::post("/admin/guests/{id}/invite", function ($id) {
+        $guestIds = [$id];
+        $guest = \ConorSmith\Wedding\Guest::find($id);
+
+        if ($guest->hasPartner()) {
+            $guestIds[] = $guest->getPartner()->id;
+        }
+
+        DB::transaction(function () use ($guest) {
+
+            $guest->is_invited = true;
+            $guest->save();
+
+            if ($guest->hasPartner()) {
+                $partner = $guest->getPartner();
+
+                $partner->is_invited = true;
+                $partner->save();
+            }
+
+        });
+
+        return new \Illuminate\Http\JsonResponse([
+            'guests' => $guestIds,
+        ]);
+    });
+
+    Route::post("/admin/guests/{id}/uninvite", function ($id) {
+        $guestIds = [$id];
+        $guest = \ConorSmith\Wedding\Guest::find($id);
+
+        if ($guest->hasPartner()) {
+            $guestIds[] = $guest->getPartner()->id;
+        }
+
+        DB::transaction(function () use ($guest) {
+
+            $guest->is_invited = false;
+            $guest->save();
+
+            if ($guest->hasPartner()) {
+                $partner = $guest->getPartner();
+
+                $partner->is_invited = false;
+                $partner->save();
+            }
+
+        });
+
+        return new \Illuminate\Http\JsonResponse([
+            'guests' => $guestIds,
+        ]);
+    });
+
     Route::get("/admin/invites/{id}/switch", function (\Illuminate\Http\Request $request, $id) {
         $invite = \ConorSmith\Wedding\Invite::find($id);
         $invite->update([
