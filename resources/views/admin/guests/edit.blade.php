@@ -160,6 +160,72 @@
       </div>
     </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Manual Override</label>
+      <div class="col-sm-5">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-borderless table-sm" style="margin-bottom: 0;">
+
+              <tr>
+
+                <td>{{ $guest->first_name }} {{ $guest->last_name }}</td>
+
+                <td style="width: 160px;">
+
+                  <input type="hidden" name="is_attending" value="{{ $guest->is_attending }}">
+
+                  <a href="#"
+                     class="btn btn-success btn-block js-attending-override"
+                     data-is-guest="1"
+                     data-is-attending="1"
+                     style="{{ !$guest->is_attending ? "display: none;" : "" }}"
+                  >Attending</a>
+
+                  <a href="#"
+                     class="btn btn-danger btn-block js-attending-override"
+                     data-is-guest="1"
+                     data-is-attending="0"
+                     style="margin-top: 0; {{ $guest->is_attending ? "display: none;" : "" }}"
+                  >Not Attending</a>
+
+                </td>
+
+              </tr>
+
+              @if($guest->getInvite()->isForTwoGuests())
+                <tr>
+
+                  <td>{{ $partner->first_name }} {{ $partner->last_name }}</td>
+
+                  <td style="width: 160px;">
+
+                    <input type="hidden" name="partner_is_attending" value="{{ $partner->is_attending }}">
+
+                    <a href="#"
+                       class="btn btn-success btn-block js-attending-override"
+                       data-is-guest="0"
+                       data-is-attending="1"
+                       style="{{ !$partner->is_attending ? "display: none;" : "" }}"
+                    >Attending</a>
+
+                    <a href="#"
+                       class="btn btn-danger btn-block js-attending-override"
+                       data-is-guest="0"
+                       data-is-attending="0"
+                       style="margin-top: 0; {{ $partner->is_attending ? "display: none;" : "" }}"
+                    >Not Attending</a>
+                  </td>
+
+                </tr>
+              @endif
+
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <h3>Gift</h3>
 
     <div class="form-group row">
@@ -208,6 +274,18 @@
           if (result !== true) {
               e.preventDefault();
           }
+      });
+
+      $(".js-attending-override").on('click', function (e) {
+          e.preventDefault();
+          if (this.dataset.isGuest === "1") {
+              $("input[name='is_attending']").val(this.dataset.isAttending === "1" ? "0" : "1");
+          } else {
+              $("input[name='partner_is_attending']").val(this.dataset.isAttending === "1" ? "0" : "1");
+          }
+
+          $(this).hide();
+          $(this).siblings(".js-attending-override").show();
       });
   </script>
 @endsection

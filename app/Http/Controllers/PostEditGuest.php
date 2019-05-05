@@ -21,6 +21,7 @@ final class PostEditGuest
             $this->updateGuest($request, $guest);
             $this->updateRelationship($request, $guest);
             $this->updateInvites($request, $guest);
+            $this->updatePartner($request, $guest);
         });
 
         return redirect("/admin/guests/{$id}");
@@ -92,6 +93,15 @@ final class PostEditGuest
             $invite->update([
                 'guest_b' => null,
             ]);
+        }
+    }
+
+    private function updatePartner(Request $request, Guest $guest): void
+    {
+        if ($guest->getInvite()->isForTwoGuests()) {
+            $partner = $guest->getPartner();
+            $partner->is_attending = $request->input('partner_is_attending');
+            $partner->save();
         }
     }
 

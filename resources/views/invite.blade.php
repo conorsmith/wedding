@@ -126,7 +126,7 @@
 
           <label>If you need to let us know anything, such as any dietary requirements, type it in below</label>
 
-          <textarea rows="3" name="dietary-requirements"></textarea>
+          <textarea rows="3" name="note"></textarea>
 
         </div>
 

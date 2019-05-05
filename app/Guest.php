@@ -16,6 +16,7 @@ class Guest extends Model
         'address',
         'receive_email',
         'receive_physical',
+        'is_attending',
     ];
 
     /** @var ?self */
