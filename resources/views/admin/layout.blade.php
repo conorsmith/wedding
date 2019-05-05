@@ -10,6 +10,22 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <style>
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+
+    .rotate {
+      animation: rotation 2s infinite linear;
+    }
+  </style>
+
 </head>
 <body style="background: #fcfcfc; padding-top: 70px;">
 
@@ -24,7 +40,10 @@
         <a class="nav-link" href="/admin">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin/guests">Guests</a>
+        <a class="nav-link" href="/admin/guests">Shortlist</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/invitees">Invitees</a>
       </li>
     </ul>
   </div>

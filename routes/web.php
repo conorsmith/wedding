@@ -38,8 +38,14 @@ Route::middleware(['auth.basic'])->group(function () {
     });
 
     Route::get("/admin/guests", function () {
-        return view('admin.guests.list', [
-            'guests' => \ConorSmith\Wedding\Guest::orderBy('last_name')->get(),
+        return view('admin.guests.shortlist', [
+            'guests'        => \ConorSmith\Wedding\Guest::orderBy('last_name')->get(),
+        ]);
+    });
+
+    Route::get("/admin/invitees", function () {
+        return view('admin.guests.invitees', [
+            'guests' => \ConorSmith\Wedding\Guest::where('is_invited', true)->orderBy('last_name')->get(),
         ]);
     });
 
@@ -128,6 +134,38 @@ Route::middleware(['auth.basic'])->group(function () {
         return new \Illuminate\Http\JsonResponse([
             'guests' => $guestIds,
         ]);
+    });
+
+    Route::post("/admin/guests/{id}/set-attending", function ($id) {
+        $guest = \ConorSmith\Wedding\Guest::find($id);
+        $guest->is_attending = true;
+        $guest->save();
+
+        return new \Illuminate\Http\JsonResponse([]);
+    });
+
+    Route::post("/admin/guests/{id}/set-not-attending", function ($id) {
+        $guest = \ConorSmith\Wedding\Guest::find($id);
+        $guest->is_attending = false;
+        $guest->save();
+
+        return new \Illuminate\Http\JsonResponse([]);
+    });
+
+    Route::post("/admin/invites/{id}/set-sent", function ($id) {
+        $invite = \ConorSmith\Wedding\Invite::find($id);
+        $invite->sent = true;
+        $invite->save();
+
+        return new \Illuminate\Http\JsonResponse([]);
+    });
+
+    Route::post("/admin/invites/{id}/set-not-sent", function ($id) {
+        $invite = \ConorSmith\Wedding\Invite::find($id);
+        $invite->sent = false;
+        $invite->save();
+
+        return new \Illuminate\Http\JsonResponse([]);
     });
 
     Route::get("/admin/invites/{id}/switch", function (\Illuminate\Http\Request $request, $id) {
