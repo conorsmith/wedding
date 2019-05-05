@@ -98,7 +98,7 @@ final class PostEditGuest
 
     private function updatePartner(Request $request, Guest $guest): void
     {
-        if ($guest->getInvite()->isForTwoGuests()) {
+        if ($guest->getInvite()->isForTwoGuests() && array_key_exists('partner_is_attending', $request->input())) {
             $partner = $guest->getPartner();
             $partner->is_attending = $request->input('partner_is_attending');
             $partner->save();

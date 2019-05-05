@@ -47,6 +47,13 @@
       </li>
     </ul>
   </div>
+  <div class="collapse navbar-collapse flex-row-reverse">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.{{ $siteMode->switch()->getDomainName() }}/{{ Route::current()->uri() }}{{ strlen($_SERVER['QUERY_STRING']) ? "?" . $_SERVER['QUERY_STRING'] : "" }}"><small>Switch Site Mode</small></a>
+      </li>
+    </ul>
+  </div>
 </nav>
 
 <div class="container">

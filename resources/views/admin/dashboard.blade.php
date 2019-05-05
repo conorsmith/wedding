@@ -26,6 +26,13 @@
       </table>
 
     </div>
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <a href="/admin/invites?type=email" class="btn btn-light">Manage Email Invites</a>
+        </div>
+      </div>
+    </div>
   </div>
 
 @endsection

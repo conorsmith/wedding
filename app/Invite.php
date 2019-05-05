@@ -44,4 +44,24 @@ class Invite extends Model
     {
         return $this->hasOne(Response::class, 'invite');
     }
+
+    public function getEmailAddresses()
+    {
+        $emails = [];
+
+        if ($this->guestA->receive_email) {
+            $emails[] = $this->guestA->email;
+        }
+
+        if ($this->isForTwoGuests() && $this->guestB->receive_email) {
+            $emails[] = $this->guestB->email;
+        }
+
+        return $emails;
+    }
+
+    public function displayEmailAddresses()
+    {
+        return implode(", ", $this->getEmailAddresses());
+    }
 }

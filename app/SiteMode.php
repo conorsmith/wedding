@@ -30,9 +30,19 @@ final class SiteMode
         $this->value = $value;
     }
 
+    public function switch(): self
+    {
+        return new self($this->value === "conorandsteph" ? "stephandconor" : "conorandsteph");
+    }
+
     public function getContactAddress(): string
     {
         return self::SETTINGS[$this->value]['contact_address'];
+    }
+
+    public function getDomainName(): string
+    {
+        return "{$this->value}.com";
     }
 
     public function getNames(): string

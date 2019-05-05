@@ -49,6 +49,32 @@ Route::middleware(['auth.basic'])->group(function () {
         ]);
     });
 
+    Route::get("/admin/invites", function (\Illuminate\Http\Request $request) {
+        if ($request->get("type") !== "email") {
+            abort(404);
+        }
+
+        $invites = \ConorSmith\Wedding\Invite::all()
+            ->filter(function ($invite) {
+                return $invite->guestA->is_invited
+                    && (
+                        is_null($invite->guestB)
+                        || $invite->guestB->is_invited
+                    );
+            })
+            ->filter(function ($invite) {
+                return $invite->guestA->receive_email
+                    || ($invite->isForTwoGuests() && $invite->guestB->receive_email);
+            })
+            ->sort(function ($inviteA, $inviteB) {
+                return strcasecmp($inviteA->guestA->last_name, $inviteB->guestA->last_name);
+            });
+
+        return view('admin.emailInvites', [
+            'invites' => $invites,
+        ]);
+    });
+
     Route::get("/admin/guests/new", function () {
         return view('admin.guests.edit', [
             'edit' => false,
@@ -163,6 +189,39 @@ Route::middleware(['auth.basic'])->group(function () {
     Route::post("/admin/invites/{id}/set-not-sent", function ($id) {
         $invite = \ConorSmith\Wedding\Invite::find($id);
         $invite->sent = false;
+        $invite->save();
+
+        return new \Illuminate\Http\JsonResponse([]);
+    });
+
+    Route::post("/admin/invites/{id}/send", function ($id) {
+        $invite = \ConorSmith\Wedding\Invite::find($id);
+
+        if (is_null($invite)) {
+            return new \Illuminate\Http\JsonResponse(["Invite {$id} does not exist"], 500);
+        }
+
+        if ($invite->sent) {
+            return new \Illuminate\Http\JsonResponse(["Invite {$id} has already been sent"], 500);
+        }
+
+        if (!$invite->guestA->receive_email
+            && ($invite->isForTwoGuests() && !$invite->guestB->receive_email)
+        ) {
+            return new \Illuminate\Http\JsonResponse(["Neither guest is set to receive an email invite"], 500);
+        }
+
+        Mail::to("conor@tercet.io")->send(
+            new \ConorSmith\Wedding\Mail\EmailInvite(\ConorSmith\Wedding\Invite::find($id))
+        );
+
+        $failures = Mail::failures();
+
+        if (count($failures) > 0) {
+            return new \Illuminate\Http\JsonResponse($failures, 500);
+        }
+
+        $invite->sent = true;
         $invite->save();
 
         return new \Illuminate\Http\JsonResponse([]);
