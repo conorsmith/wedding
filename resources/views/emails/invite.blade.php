@@ -46,6 +46,8 @@
 
     .container .masthead { padding: 80px 0; background: #71bc37; color: white; }
 
+    .container .masthead img { max-width: 580px; }
+
     .container .masthead h1 { margin: 0 auto !important; max-width: 90%; text-transform: uppercase; }
 
     .container .content { background: white; padding: 30px 35px; }
@@ -70,7 +72,7 @@
         <tr>
           <td align="center" class="masthead">
 
-            <h1>The Wedding of Stephanie Fleming and Conor Smith</h1>
+            <img src="http://www.{{ $siteMode->getDomainName() }}/img/email@3x.png">
 
           </td>
         </tr>
