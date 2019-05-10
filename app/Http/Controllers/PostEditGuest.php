@@ -19,6 +19,11 @@ final class PostEditGuest
     {
         $guest = Guest::find($id);
 
+        if ($this->tryingToSplitInvitesThatHaveBeenSent($request, $guest)) {
+            $request->session()->flash('error', "You cannot split a joint invite that has been sent!");
+            return redirect("/admin/guests/{$id}");
+        }
+
         DB::transaction(function () use ($request, $guest) {
             $this->updateGuest($request, $guest);
             $this->updateRelationship($request, $guest);
@@ -143,5 +148,11 @@ final class PostEditGuest
     {
         return $request->input('invite_plus_partner') === "no"
             && $guest->getInvite()->isForTwoGuests();
+    }
+
+    private function tryingToSplitInvitesThatHaveBeenSent(Request $request, Guest $guest): bool
+    {
+        return $this->shouldSplitInvites($request, $guest)
+            && $guest->getInvite()->sent === true;
     }
 }
