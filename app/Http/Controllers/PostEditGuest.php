@@ -9,6 +9,8 @@ use ConorSmith\Wedding\Relationship;
 use DB;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
+use RandomLib\Factory;
+use SecurityLib\Strength;
 use Symfony\Component\HttpFoundation\Response;
 
 final class PostEditGuest
@@ -83,10 +85,17 @@ final class PostEditGuest
             $partnerInvite->delete();
 
         } elseif ($this->shouldSplitInvites($request, $guest)) {
+            $factory = new Factory;
+            $generator = $factory->getGenerator(new Strength(Strength::MEDIUM));
+
             (new Invite([
                 'id' => Uuid::uuid4(),
                 'guest_a' => $invite->guest_b,
                 'note' => $invite->note,
+                'access_key' => $generator->generateString(
+                    256,
+                    "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                )
             ]))
                 ->save();
 
