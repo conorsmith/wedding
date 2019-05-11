@@ -72,7 +72,7 @@
         <tr>
           <td align="center" class="masthead">
 
-            <img src="http://www.{{ $siteMode->getDomainName() }}/img/email@1x.png"  srcset="http://www.{{ $siteMode->getDomainName() }}/img/email@2x.png 2x, http://www.{{ $siteMode->getDomainName() }}/img/email@3x.png 3x">
+            <img src="http://www.{{ $siteMode->getDomainName() }}/img/email@2x.png">
 
           </td>
         </tr>
