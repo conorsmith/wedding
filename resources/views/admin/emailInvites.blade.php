@@ -49,10 +49,12 @@
              data-toggle="modal"
              data-target="#email-modal"
              data-invite-id="{{ $invite->id }}"
-             data-invite-message="<p>{{ $invite->guestA->first_name }}{{ $invite->isForTwoGuests() ? " and " . $invite->guestB->first_name : "" }}</p><p>{{ $invite->note ? nl2br($invite->note) : "Please join us for" }}</p>"
           >
             <i class="far fa-envelope"></i> Send
           </a>
+          <template>
+            @include('emails.invite-message')
+          </template>
         </td>
 
       </tr>
@@ -71,8 +73,9 @@
         </div>
         <div class="modal-body">
           <div class="alert alert-danger js-error-message" style="display: none;"></div>
-          <p><strong>This is the message that will be sent</strong></p>
-          <div class="invite-message" style="text-align: center;"></div>
+          <p><strong>This is the message that will be sent:</strong></p>
+          <hr>
+          <div class="invite-message"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -89,7 +92,9 @@
 
     $("#email-modal").on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
-        $(this).find(".invite-message").html(button.data('invite-message'));
+        $(this).find(".invite-message").html((button.siblings('template').html()));
+        $(this).find(".invite-message table").css('width', "100%");
+        $(this).find(".invite-message .button").addClass("btn btn-info");
         $(this).find(".js-send-email").data('invite-id', button.data('invite-id'));
         $("#email-modal").find(".js-error-message").hide();
     });
