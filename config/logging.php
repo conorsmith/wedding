@@ -87,6 +87,11 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+
+        'email' => [
+            'driver' => 'custom',
+            'via' => \ConorSmith\Wedding\Infrastructure\Logging\LoggerFactory::class,
+        ],
     ],
 
 ];
