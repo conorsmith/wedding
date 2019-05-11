@@ -4,6 +4,7 @@ namespace ConorSmith\Wedding;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class Guest extends Model
 {
@@ -76,6 +77,13 @@ class Guest extends Model
         $this->invite = Invite::where('guest_a', $this->id)
             ->orWhere('guest_b', $this->id)
             ->first();
+
+        if (is_null($this->invite)) {
+            Log::error("Guest is missing an invite", [
+                'guestId'   => $this->id,
+                'guestName' => "{$this->first_name} {$this->last_name}",
+            ]);
+        }
 
         return $this->invite;
     }
