@@ -22,7 +22,7 @@
 
     .text-left { text-align: left; }
 
-    .button { display: inline-block; color: white; background: #009ba3; border: solid #009ba3; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
+    .button { display: inline-block; color: white!important; background: #009ba3; border: solid #009ba3; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
 
     .button:hover { text-decoration: none; }
 
