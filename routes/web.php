@@ -89,8 +89,15 @@ Route::middleware(['auth.basic'])->group(function () {
     Route::get("/admin", function () {
         return view('admin.dashboard', [
             'totalGuests' => \ConorSmith\Wedding\Guest::all()->count(),
-            'totalInvites' => \ConorSmith\Wedding\Guest::where('is_invited', true)->count(),
+            'totalInvited' => \ConorSmith\Wedding\Guest::where('is_invited', true)->count(),
+            'totalInvites' => \ConorSmith\Wedding\Invite::all()
+                ->filter(function ($invite) {
+                    return $invite->guestsAreInvited();
+                })
+                ->count(),
             'totalSent' => \ConorSmith\Wedding\Invite::where('sent', true)->count(),
+            'totalResponses' => \ConorSmith\Wedding\Response::all()->count(),
+            'totalAttending' => \ConorSmith\Wedding\Guest::where('is_attending', true)->count(),
         ]);
     });
 

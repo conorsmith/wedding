@@ -15,13 +15,25 @@
         </tr>
         <tr>
           <td>Selected to Invite</td>
-          <td style="text-align: right;">{{ $totalInvites }}</td>
+          <td style="text-align: right;">{{ $totalInvited }}</td>
           <td class="text-muted">/ {{ config('wedding.capacity') }}</td>
         </tr>
+        <tr><td colspan="3"></td></tr>
         <tr>
           <td>Invites Sent</td>
           <td style="text-align: right;">{{ $totalSent }}</td>
-          <td></td>
+          <td class="text-muted">/ {{ $totalInvites }}</td>
+        </tr>
+        <tr>
+          <td>Responses Received</td>
+          <td style="text-align: right;">{{ $totalResponses }}</td>
+          <td class="text-muted">/ {{ $totalSent }}</td>
+        </tr>
+        <tr><td colspan="3"></td></tr>
+        <tr>
+          <td>Guests Attending</td>
+          <td style="text-align: right;">{{ $totalAttending }}</td>
+          <td class="text-muted">/ {{ config('wedding.capacity') }}</td>
         </tr>
       </table>
 

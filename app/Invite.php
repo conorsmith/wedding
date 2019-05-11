@@ -40,6 +40,19 @@ class Invite extends Model
         return !is_null($this->guest_b);
     }
 
+    public function guestsAreInvited(): bool
+    {
+        if (!$this->guestA->is_invited) {
+            return false;
+        }
+
+        if ($this->isForOneGuest()) {
+            return true;
+        }
+
+        return $this->guestB->is_invited;
+    }
+
     public function guestA()
     {
         return $this->belongsTo(Guest::class, 'guest_a');
