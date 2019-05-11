@@ -228,9 +228,16 @@ Route::middleware(['auth.basic'])->group(function () {
         }
 
         $invite->sent = true;
+        $invite->sent_at = \Carbon\Carbon::now("Europe/Dublin");
         $invite->save();
 
-        return new \Illuminate\Http\JsonResponse([]);
+        $sentAtMarkup = $invite->sent_at->format("Y-m-d H:i");
+        $sentAtMarkup = str_replace(" ", "&nbsp;", $sentAtMarkup);
+        $sentAtMarkup = str_replace("-", "&#8209;", $sentAtMarkup);
+
+        return new \Illuminate\Http\JsonResponse([
+            'sentAt' => $sentAtMarkup,
+        ]);
     });
 
     Route::get("/admin/invites/{id}/switch", function (\Illuminate\Http\Request $request, $id) {

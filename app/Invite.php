@@ -2,6 +2,7 @@
 
 namespace ConorSmith\Wedding;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Invite extends Model
@@ -18,6 +19,15 @@ class Invite extends Model
     public function getKeyType()
     {
         return 'string';
+    }
+
+    public function getSentAtAttribute($value)
+    {
+        if (is_null($value)) {
+            return null;
+        }
+
+        return new Carbon($value, "Europe/Dublin");
     }
 
     public function isForOneGuest(): bool

@@ -7,8 +7,9 @@
   <table class="table">
     <thead>
     <tr>
-      <th colspan="2">Guests</th>
+      <th>Guests</th>
       <th>Email Addresses</th>
+      <th>Sent at</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -16,26 +17,32 @@
     @foreach($invites as $invite)
       <tr>
 
-        <td>{{ $invite->guestA->first_name }} {{ $invite->guestA->last_name }}</td>
-        @if($invite->isForTwoGuests())
-          <td>+ {{ $invite->guestB->first_name }} {{ $invite->guestB->last_name }}</td>
-        @else
-          <td></td>
-        @endif
-
         <td>
+          {{ $invite->guestA->first_name }} {{ $invite->guestA->last_name }}
+          @if($invite->isForTwoGuests())
+            + {{ $invite->guestB->first_name }} {{ $invite->guestB->last_name }}
+          @endif
+        </td>
+
+        <td class="small">
           {{ $invite->displayEmailAddresses() }}
         </td>
 
-        <td style="width: 140px; text-align: right;">
-          <a href="/preview-invite/{{ $invite->id }}" class="btn btn-sm btn-link" target="_blank">Preview Invite</a>
-        </td>
-
-        <td style="width: 140px; text-align: right;">
-          <a href="/preview-email/{{ $invite->id }}" class="btn btn-sm btn-link" target="_blank">Preview Email</a>
+        <td class="small js-sent-at" data-invite-id="{{ $invite->id }}">
+          @if(!is_null($invite->sent_at))
+            {{ $invite->sent_at->format("Y") }}&#8209;{{ $invite->sent_at->format("m") }}&#8209;{{ $invite->sent_at->format("d") }}&nbsp;{{ $invite->sent_at->format("H:i") }}
+          @endif
         </td>
 
         <td>
+          <a href="/preview-invite/{{ $invite->id }}" class="btn btn-sm btn-link" target="_blank">Preview Invite</a>
+        </td>
+
+        <td>
+          <a href="/preview-email/{{ $invite->id }}" class="btn btn-sm btn-link" target="_blank">Preview Email</a>
+        </td>
+
+        <td style="width: 100px;">
           <a href="#"
              class="btn btn-sm btn-block btn-success disabled js-invite-sent"
              style="{{ $invite->sent ? "" : "display: none;" }}"
@@ -109,6 +116,7 @@
         $.post("/admin/invites/" + inviteId + "/send", function (data) {
             $(".js-invite-send[data-invite-id='" + inviteId + "']").hide();
             $(".js-invite-sent[data-invite-id='" + inviteId + "']").show();
+            $(".js-sent-at[data-invite-id='" + inviteId + "']").html(data.sentAt);
             $("#email-modal").modal('hide');
             button.html(originalHtml);
         })
