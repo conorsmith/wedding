@@ -30,6 +30,7 @@
       <div class="card">
         <div class="card-body">
           <a href="/admin/invites?type=email" class="btn btn-light">Manage Email Invites</a>
+          <a href="/admin/invites?type=physical" class="btn btn-light">Manage Physical Invites</a>
         </div>
       </div>
     </div>

@@ -19,6 +19,57 @@ Route::get("/invite/{id}", GetInvite::class);
 
 Route::post("/rsvp/{id}", PostRsvp::class);
 
+Route::get("/rsvp", function () {
+    return view('rsvp-code');
+});
+
+Route::get("/rsvp/{code}", function ($code) {
+
+    $invite = \ConorSmith\Wedding\Invite::where('short_code', $code)->first();
+
+    if (is_null($invite)) {
+        abort(404);
+    }
+
+    if (!$invite->guestA->receive_physical) {
+        if ($invite->isForOneGuest()) {
+            abort(404);
+        }
+
+        if (!$invite->guestB->receive_physical) {
+            abort(404);
+        }
+    }
+
+    return redirect("/invite/{$invite->id}?key={$invite->access_key}");
+});
+
+Route::post("/rsvp", function (\Illuminate\Http\Request $request) {
+
+    $code = $request->input("code");
+
+    $invite = \ConorSmith\Wedding\Invite::where('short_code', $code)->first();
+
+    if (is_null($invite)) {
+        $request->session()->flash('error', "Invalid invite code");
+        return redirect("/rsvp");
+    }
+
+    if (!$invite->guestA->receive_physical) {
+        if ($invite->isForOneGuest()) {
+            $request->session()->flash('error', "Invalid invite code");
+            return redirect("/rsvp");
+        }
+
+        if (!$invite->guestB->receive_physical) {
+            $request->session()->flash('error', "Invalid invite code");
+            return redirect("/rsvp");
+        }
+    }
+
+    return redirect("/invite/{$invite->id}?key={$invite->access_key}");
+});
+
 Route::middleware(['auth.basic'])->group(function () {
 
     Route::get("/new-splash", function () {
@@ -55,31 +106,7 @@ Route::middleware(['auth.basic'])->group(function () {
         ]);
     });
 
-    Route::get("/admin/invites", function (\Illuminate\Http\Request $request) {
-        if ($request->get("type") !== "email") {
-            abort(404);
-        }
-
-        $invites = \ConorSmith\Wedding\Invite::all()
-            ->filter(function ($invite) {
-                return $invite->guestA->is_invited
-                    && (
-                        is_null($invite->guestB)
-                        || $invite->guestB->is_invited
-                    );
-            })
-            ->filter(function ($invite) {
-                return $invite->guestA->receive_email
-                    || ($invite->isForTwoGuests() && $invite->guestB->receive_email);
-            })
-            ->sort(function ($inviteA, $inviteB) {
-                return strcasecmp($inviteA->guestA->last_name, $inviteB->guestA->last_name);
-            });
-
-        return view('admin.emailInvites', [
-            'invites' => $invites,
-        ]);
-    });
+    Route::get("/admin/invites", ManageInvites::class);
 
     Route::get("/admin/guests/new", function () {
         return view('admin.guests.edit', [
