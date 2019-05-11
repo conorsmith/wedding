@@ -22,7 +22,7 @@
 
     .text-left { text-align: left; }
 
-    .button { display: inline-block; color: white; background: #71bc37; border: solid #71bc37; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
+    .button { display: inline-block; color: white; background: #009ba3; border: solid #009ba3; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
 
     .button:hover { text-decoration: none; }
 
@@ -44,7 +44,7 @@
 
     .container table { width: 100% !important; border-collapse: collapse; }
 
-    .container .masthead { padding: 80px 0; background: #71bc37; color: white; }
+    .container .masthead { background: #eee; color: white; }
 
     .container .masthead img { max-width: 580px; }
 
@@ -72,22 +72,22 @@
         <tr>
           <td align="center" class="masthead">
 
-            <img src="http://www.{{ $siteMode->getDomainName() }}/img/email@3x.png">
+            <img src="http://www.{{ $siteMode->getDomainName() }}/img/email@1x.png"  srcset="http://www.{{ $siteMode->getDomainName() }}/img/email@2x.png 2x, http://www.{{ $siteMode->getDomainName() }}/img/email@3x.png 3x">
 
           </td>
         </tr>
         <tr>
           <td class="content">
 
-            <h2>Hi {{ $invite->guestA->first_name }}{{ $invite->isForTwoGuests() ? " & " . $invite->guestB->first_name : "" }},</h2>
+            <h2>Hey {{ $invite->guestA->first_name }}{{ $invite->isForTwoGuests() ? " & " . $invite->guestB->first_name : "" }},</h2>
 
-            <p>{{ $invite->note ? $invite->note : "Please join us for our wedding!" }}</p>
+            <p>We're getting married this summer and <strong>you're invited!</strong></p>
 
             <table>
               <tr>
                 <td align="center">
                   <p>
-                    <a href="http://www.{{ $siteMode->getDomainName() }}/invite/{{ $invite->id }}?key={{ $invite->access_key }}" class="button">RSVP now</a>
+                    <a href="http://www.{{ $siteMode->getDomainName() }}/invite/{{ $invite->id }}?key={{ $invite->access_key }}" class="button">Open your invite</a>
                   </p>
                 </td>
               </tr>

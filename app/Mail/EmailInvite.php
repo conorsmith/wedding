@@ -7,7 +7,6 @@ use ConorSmith\Wedding\SiteMode;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class EmailInvite extends Mailable
 {
@@ -39,7 +38,7 @@ class EmailInvite extends Mailable
     {
         return $this
             ->from($this->siteMode->getContactAddress(), $this->siteMode->getNames())
-            ->subject("Please join us on August 18th, 2019")
+            ->subject("We're getting married!")
             ->view('emails.invite');
     }
 }

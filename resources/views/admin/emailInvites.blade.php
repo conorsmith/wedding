@@ -9,7 +9,7 @@
     <tr>
       <th colspan="2">Guests</th>
       <th>Email Addresses</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +29,10 @@
 
         <td style="width: 140px; text-align: right;">
           <a href="/preview-invite/{{ $invite->id }}" class="btn btn-sm btn-link" target="_blank">Preview Invite</a>
+        </td>
+
+        <td style="width: 140px; text-align: right;">
+          <a href="/preview-email/{{ $invite->id }}" class="btn btn-sm btn-link" target="_blank">Preview Email</a>
         </td>
 
         <td>

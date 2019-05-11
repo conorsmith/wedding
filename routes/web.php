@@ -29,6 +29,12 @@ Route::middleware(['auth.basic'])->group(function () {
 
     Route::get('/preview-invite/{id?}', GetInvite::class);
 
+    Route::get("/preview-email/{id}", function ($id) {
+        return new \ConorSmith\Wedding\Mail\EmailInvite(
+            \ConorSmith\Wedding\Invite::find($id)
+        );
+    });
+
     Route::get("/admin", function () {
         return view('admin.dashboard', [
             'totalGuests' => \ConorSmith\Wedding\Guest::all()->count(),
