@@ -113,11 +113,17 @@
           var guestId = this.dataset.guestId;
           var originalHtml = this.innerHTML;
           this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
-          $.post("/admin/guests/" + this.dataset.guestId + "/set-attending", {}, function (data, status, xhr) {
-              $(".js-set-attending[data-guest-id='" + guestId + "']").hide();
-              $(".js-set-not-attending[data-guest-id='" + guestId + "']").show();
-              button.innerHTML = originalHtml;
-          });
+          $.post(
+              "/admin/guests/" + this.dataset.guestId + "/toggle-is-attending",
+              {
+                  isAttending: 1
+              },
+              function (data, status, xhr) {
+                  $(".js-set-attending[data-guest-id='" + guestId + "']").hide();
+                  $(".js-set-not-attending[data-guest-id='" + guestId + "']").show();
+                  button.innerHTML = originalHtml;
+              }
+          );
       });
 
       $(".js-set-not-attending").on('click', function (e) {
@@ -126,11 +132,17 @@
           var guestId = this.dataset.guestId;
           var originalHtml = this.innerHTML;
           this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
-          $.post("/admin/guests/" + this.dataset.guestId + "/set-not-attending", {}, function (data, status, xhr) {
-              $(".js-set-not-attending[data-guest-id='" + guestId + "']").hide();
-              $(".js-set-attending[data-guest-id='" + guestId + "']").show();
-              button.innerHTML = originalHtml;
-          });
+          $.post(
+              "/admin/guests/" + this.dataset.guestId + "/toggle-is-attending",
+              {
+                  isAttending: 0
+              },
+              function (data, status, xhr) {
+                  $(".js-set-not-attending[data-guest-id='" + guestId + "']").hide();
+                  $(".js-set-attending[data-guest-id='" + guestId + "']").show();
+                  button.innerHTML = originalHtml;
+              }
+          );
       });
 
   </script>

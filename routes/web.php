@@ -48,8 +48,7 @@ Route::middleware(['auth.basic'])->group(function () {
 
     Route::post("/admin/guests/{id}/toggle-is-invited", ToggleGuestInvitation::class);
 
-    Route::post("/admin/guests/{id}/set-attending", ToggleGuestAttending::class);
-    Route::post("/admin/guests/{id}/set-not-attending", ToggleGuestAttending::class);
+    Route::post("/admin/guests/{id}/toggle-is-attending", ToggleGuestAttending::class);
 
     Route::post("/admin/invites/{id}/set-sent", ToggleInviteSent::class);
     Route::post("/admin/invites/{id}/set-not-sent", ToggleInviteSent::class);

@@ -11,26 +11,10 @@ final class ToggleGuestAttending
 {
     public function __invoke(Request $request, string $id)
     {
-        if (str_contains($request->route()->uri(), "not-attending")) {
-            return $this->setIsNotAttending($id);
-        } else {
-            return $this->setIsAttending($id);
-        }
-    }
+        $isAttending = $request->input('isAttending') === "1";
 
-    private function setIsAttending(string $id)
-    {
         $guest = Guest::find($id);
-        $guest->is_attending = false;
-        $guest->save();
-
-        return new JsonResponse([]);
-    }
-
-    private function setIsNotAttending(string $id)
-    {
-        $guest = Guest::find($id);
-        $guest->is_attending = false;
+        $guest->is_attending = $isAttending;
         $guest->save();
 
         return new JsonResponse([]);
