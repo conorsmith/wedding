@@ -64,11 +64,17 @@
           var inviteId = this.dataset.inviteId;
           var originalHtml = this.innerHTML;
           this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
-          $.post("/admin/invites/" + inviteId + "/set-sent", {}, function (data, status, xhr) {
-              $(".js-set-invite-sent[data-invite-id='" + inviteId + "']").hide();
-              $(".js-set-invite-not-sent[data-invite-id='" + inviteId + "']").show();
-              button.innerHTML = originalHtml;
-          });
+          $.post(
+              "/admin/invites/" + inviteId + "/toggle-is-sent",
+              {
+                  isSent: 1
+              },
+              function (data, status, xhr) {
+                  $(".js-set-invite-sent[data-invite-id='" + inviteId + "']").hide();
+                  $(".js-set-invite-not-sent[data-invite-id='" + inviteId + "']").show();
+                  button.innerHTML = originalHtml;
+              }
+          );
       });
 
       $(".js-set-invite-not-sent").on('click', function (e) {
@@ -77,11 +83,17 @@
           var inviteId = this.dataset.inviteId;
           var originalHtml = this.innerHTML;
           this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
-          $.post("/admin/invites/" + inviteId + "/set-not-sent", {}, function (data, status, xhr) {
-              $(".js-set-invite-not-sent[data-invite-id='" + inviteId + "']").hide();
-              $(".js-set-invite-sent[data-invite-id='" + inviteId + "']").show();
-              button.innerHTML = originalHtml;
-          });
+          $.post(
+              "/admin/invites/" + inviteId + "/toggle-is-sent",
+              {
+                  isSent: 0
+              },
+              function (data, status, xhr) {
+                  $(".js-set-invite-not-sent[data-invite-id='" + inviteId + "']").hide();
+                  $(".js-set-invite-sent[data-invite-id='" + inviteId + "']").show();
+                  button.innerHTML = originalHtml;
+              }
+          );
       });
 
   </script>

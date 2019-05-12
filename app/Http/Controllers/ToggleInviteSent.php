@@ -11,26 +11,10 @@ final class ToggleInviteSent
 {
     public function __invoke(Request $request, string $id)
     {
-        if (str_contains($request->route()->uri(), "not-sent")) {
-            return $this->setInviteNotSent($id);
-        } else {
-            return $this->setInviteSent($id);
-        }
-    }
+        $isSent = $request->input('isSent') === "1";
 
-    private function setInviteSent(string $id)
-    {
         $invite = Invite::find($id);
-        $invite->sent = true;
-        $invite->save();
-
-        return new JsonResponse([]);
-    }
-
-    private function setInviteNotSent(string $id)
-    {
-        $invite = Invite::find($id);
-        $invite->sent = false;
+        $invite->sent = $isSent;
         $invite->save();
 
         return new JsonResponse([]);
