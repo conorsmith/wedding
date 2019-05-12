@@ -19,56 +19,11 @@ Route::get("/invite/{id}", ViewInvite::class);
 
 Route::post("/rsvp/{id}", SubmitRsvp::class);
 
-Route::get("/rsvp", function () {
-    return view('rsvp-code');
-});
+Route::get("/rsvp", ShowRsvpCodeForm::class);
 
-Route::get("/rsvp/{code}", function ($code) {
+Route::get("/rsvp/{code}", ViewInviteUsingRsvpCode::class);
 
-    $invite = \ConorSmith\Wedding\Invite::where('short_code', $code)->first();
-
-    if (is_null($invite)) {
-        abort(404);
-    }
-
-    if (!$invite->guestA->receive_physical) {
-        if ($invite->isForOneGuest()) {
-            abort(404);
-        }
-
-        if (!$invite->guestB->receive_physical) {
-            abort(404);
-        }
-    }
-
-    return redirect("/invite/{$invite->id}?key={$invite->access_key}");
-});
-
-Route::post("/rsvp", function (\Illuminate\Http\Request $request) {
-
-    $code = $request->input("code");
-
-    $invite = \ConorSmith\Wedding\Invite::where('short_code', $code)->first();
-
-    if (is_null($invite)) {
-        $request->session()->flash('error', "Invalid invite code");
-        return redirect("/rsvp");
-    }
-
-    if (!$invite->guestA->receive_physical) {
-        if ($invite->isForOneGuest()) {
-            $request->session()->flash('error', "Invalid invite code");
-            return redirect("/rsvp");
-        }
-
-        if (!$invite->guestB->receive_physical) {
-            $request->session()->flash('error', "Invalid invite code");
-            return redirect("/rsvp");
-        }
-    }
-
-    return redirect("/invite/{$invite->id}?key={$invite->access_key}");
-});
+Route::post("/rsvp", SubmitRsvpCode::class);
 
 Route::middleware(['auth.basic'])->group(function () {
 
