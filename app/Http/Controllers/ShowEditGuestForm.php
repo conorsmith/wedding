@@ -45,7 +45,7 @@ final class ShowEditGuestForm
         $response = $invite->getResponse();
 
         return (object) [
-            'id'               => $guest->getId(),
+            'id'               => strval($guest->getId()),
             'first_name'       => $guest->getFirstName(),
             'last_name'        => $guest->getLastName(),
             'email'            => $guest->hasEmail(),
@@ -56,7 +56,7 @@ final class ShowEditGuestForm
             'is_attending'     => $guest->isAttending(),
             'has_responded'    => $this->inviteRepo->findForGuest($guest)->hasResponse(),
             'invite'           => (object) [
-                'id'                => $invite->getId(),
+                'id'                => strval($invite->getId()),
                 'note'              => $invite->getNote(),
                 'is_for_one_guest'  => $invite->isForOneGuest(),
                 'is_for_two_guests' => $invite->isForTwoGuests(),
@@ -85,7 +85,7 @@ final class ShowEditGuestForm
         }
 
         return (object) [
-            'id'           => $partner->getId(),
+            'id'           => strval($partner->getId()),
             'first_name'   => $partner->getFirstName(),
             'last_name'    => $partner->getLastName(),
             'is_attending' => $partner->isAttending(),
@@ -98,7 +98,7 @@ final class ShowEditGuestForm
 
         foreach ($guests as $guest) {
             $viewModels[] = (object) [
-                'id'         => $guest->getId(),
+                'id'         => strval($guest->getId()),
                 'first_name' => $guest->getFirstName(),
                 'last_name'  => $guest->getLastName(),
             ];
