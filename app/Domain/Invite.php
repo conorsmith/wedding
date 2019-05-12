@@ -83,6 +83,10 @@ final class Invite
 
     public function findGuestB(GuestRepository $guestRepo): ?Guest
     {
+        if (is_null($this->guestBId)) {
+            return null;
+        }
+
         return $guestRepo->find($this->guestBId);
     }
 }

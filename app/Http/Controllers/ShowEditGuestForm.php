@@ -7,6 +7,7 @@ use ConorSmith\Wedding\Domain\Guest;
 use ConorSmith\Wedding\Domain\GuestRepository;
 use ConorSmith\Wedding\Domain\InviteRepository;
 use Ramsey\Uuid\Uuid;
+use stdClass;
 
 final class ShowEditGuestForm
 {
@@ -62,9 +63,11 @@ final class ShowEditGuestForm
                 'guestA'            => (object) [
                     'first_name' => $guestA->getFirstName(),
                 ],
-                'guestB'            => (object) [
-                    'first_name' => $guestB->getFirstName(),
-                ],
+                'guestB'            => is_null($guestB)
+                    ? null
+                    : (object) [
+                        'first_name' => $guestB->getFirstName(),
+                    ],
                 'response'          => is_null($response)
                     ? null
                     : (object) [
@@ -75,8 +78,12 @@ final class ShowEditGuestForm
         ];
     }
 
-    private function presentPartner(Guest $partner)
+    private function presentPartner(?Guest $partner)
     {
+        if (is_null($partner)) {
+            return null;
+        }
+
         return (object) [
             'id'           => $partner->getId(),
             'first_name'   => $partner->getFirstName(),
