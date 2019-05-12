@@ -12,59 +12,23 @@ final class ToggleGuestInvitation
 {
     public function __invoke(Request $request, string $id)
     {
-        if (str_contains($request->route()->uri(), "uninvite")) {
-            return $this->setUninvited($id);
-        } else {
-            return $this->setInvited($id);
-        }
-    }
-
-    private function setInvited(string $id)
-    {
         $guestIds = [$id];
+        $isInvited = $request->input('isInvited') === "1";
         $guest = Guest::find($id);
 
         if ($guest->hasPartner()) {
             $guestIds[] = $guest->getPartner()->id;
         }
 
-        DB::transaction(function () use ($guest) {
+        DB::transaction(function () use ($guest, $isInvited) {
 
-            $guest->is_invited = true;
+            $guest->is_invited = $isInvited;
             $guest->save();
 
             if ($guest->hasPartner()) {
                 $partner = $guest->getPartner();
 
-                $partner->is_invited = true;
-                $partner->save();
-            }
-
-        });
-
-        return new JsonResponse([
-            'guests' => $guestIds,
-        ]);
-    }
-
-    private function setUninvited(string $id)
-    {
-        $guestIds = [$id];
-        $guest = Guest::find($id);
-
-        if ($guest->hasPartner()) {
-            $guestIds[] = $guest->getPartner()->id;
-        }
-
-        DB::transaction(function () use ($guest) {
-
-            $guest->is_invited = false;
-            $guest->save();
-
-            if ($guest->hasPartner()) {
-                $partner = $guest->getPartner();
-
-                $partner->is_invited = false;
+                $partner->is_invited = $isInvited;
                 $partner->save();
             }
 

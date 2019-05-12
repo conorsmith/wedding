@@ -39,13 +39,19 @@
           var button = this;
           var originalHtml = this.innerHTML;
           this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
-          $.post("/admin/guests/" + this.dataset.guestId + "/invite", {}, function (data, status, xhr) {
-              for (var i = 0; i < data.guests.length; i++) {
-                  $(".js-invite[data-guest-id='" + data.guests[i] + "']").hide();
-                  $(".js-uninvite[data-guest-id='" + data.guests[i] + "']").show();
+          $.post(
+              "/admin/guests/" + this.dataset.guestId + "/toggle-is-invited",
+              {
+                  isInvited: 1
+              },
+              function (data, status, xhr) {
+                  for (var i = 0; i < data.guests.length; i++) {
+                      $(".js-invite[data-guest-id='" + data.guests[i] + "']").hide();
+                      $(".js-uninvite[data-guest-id='" + data.guests[i] + "']").show();
+                  }
+                  button.innerHTML = originalHtml;
               }
-              button.innerHTML = originalHtml;
-          });
+          );
       });
 
       $(".js-uninvite").on('click', function (e) {
@@ -53,13 +59,19 @@
           var button = this;
           var originalHtml = this.innerHTML;
           this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
-          $.post("/admin/guests/" + this.dataset.guestId + "/uninvite", {}, function (data, status, xhr) {
-              for (var i = 0; i < data.guests.length; i++) {
-                  $(".js-uninvite[data-guest-id='" + data.guests[i] + "']").hide();
-                  $(".js-invite[data-guest-id='" + data.guests[i] + "']").show();
+          $.post(
+              "/admin/guests/" + this.dataset.guestId + "/toggle-is-invited",
+              {
+                  isInvited: 0
+              },
+              function (data, status, xhr) {
+                  for (var i = 0; i < data.guests.length; i++) {
+                      $(".js-uninvite[data-guest-id='" + data.guests[i] + "']").hide();
+                      $(".js-invite[data-guest-id='" + data.guests[i] + "']").show();
+                  }
+                  button.innerHTML = originalHtml;
               }
-              button.innerHTML = originalHtml;
-          });
+          );
       });
   </script>
 @endsection

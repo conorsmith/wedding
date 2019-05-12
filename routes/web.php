@@ -46,8 +46,7 @@ Route::middleware(['auth.basic'])->group(function () {
 
     Route::delete("/admin/guests/{id}", DeleteGuest::class);
 
-    Route::post("/admin/guests/{id}/invite", ToggleGuestInvitation::class);
-    Route::post("/admin/guests/{id}/uninvite", ToggleGuestInvitation::class);
+    Route::post("/admin/guests/{id}/toggle-is-invited", ToggleGuestInvitation::class);
 
     Route::post("/admin/guests/{id}/set-attending", ToggleGuestAttending::class);
     Route::post("/admin/guests/{id}/set-not-attending", ToggleGuestAttending::class);
