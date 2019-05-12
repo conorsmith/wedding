@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('splash');
-});
+Route::get('/', ShowLandingPage::class);
 
 Route::get("/invite/{id}", ViewInvite::class);
 Route::post("/rsvp/{id}", SubmitRsvp::class);
