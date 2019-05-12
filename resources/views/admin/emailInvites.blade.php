@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <h1 class="display-3">Manage Email Invites</h1>
+  <h1 class="display-3">Email Invites</h1>
 
   <table class="table">
     <thead>

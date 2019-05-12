@@ -3,7 +3,7 @@
 
 @section('content')
 
-  <h1 class="display-3">Manage Physical Invites</h1>
+  <h1 class="display-3">Physical Invites</h1>
 
   <table class="table">
     <thead>

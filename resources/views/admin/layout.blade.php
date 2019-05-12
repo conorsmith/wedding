@@ -37,13 +37,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/admin">Home</a>
+        <a class="nav-link" href="/admin"><i class="fas fa-home"></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin/guests">Shortlist</a>
+        <a class="nav-link" href="/admin/guests"><i class="fas fa-list-ol"></i> Shortlist</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin/invitees">Invitees</a>
+        <a class="nav-link" href="/admin/invitees"><i class="fas fa-envelope-open-text"></i> Invited Guests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/invites?type=email"><i class="fas fa-at"></i> Email Invites</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/invites?type=physical"><i class="fas fa-mail-bulk"></i> Physical Invites</a>
       </li>
     </ul>
   </div>
