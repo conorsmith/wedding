@@ -53,7 +53,7 @@ final class ShowEditGuestForm
             'address'          => $guest->getAddress(),
             'receive_email'    => $guest->receiveEmail(),
             'receive_physical' => $guest->receivePhysical(),
-            'is_attending'     => $guest->isAttending(),
+            'is_attending'     => $guest->isAttending() ? "1" : "0",
             'has_responded'    => $this->inviteRepo->findForGuest($guest)->hasResponse(),
             'invite'           => (object) [
                 'id'                => strval($invite->getId()),
