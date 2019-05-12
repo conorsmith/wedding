@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get("/invite/{id}", ViewInvite::class);
 
-Route::post("/rsvp/{id}", PostRsvp::class);
+Route::post("/rsvp/{id}", SubmitRsvp::class);
 
 Route::get("/rsvp", function () {
     return view('rsvp-code');

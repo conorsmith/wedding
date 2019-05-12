@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Ramsey\Uuid\Uuid;
 
-final class PostRsvp
+final class SubmitRsvp
 {
     public function __invoke(Request $request, string $id)
     {
