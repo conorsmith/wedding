@@ -81,6 +81,21 @@ final class Guest
         return $this->lastName;
     }
 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
     public function hasEmail(): bool
     {
         return !is_null($this->email);
