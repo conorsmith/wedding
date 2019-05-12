@@ -8,7 +8,7 @@ use ConorSmith\Wedding\Invite;
 use ConorSmith\Wedding\Response;
 use Illuminate\Http\Request;
 
-final class GetInvite
+final class ViewInvite
 {
     public function __invoke(Request $request, $id = null)
     {

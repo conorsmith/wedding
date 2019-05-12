@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('splash');
 });
 
-Route::get("/invite/{id}", GetInvite::class);
+Route::get("/invite/{id}", ViewInvite::class);
 
 Route::post("/rsvp/{id}", PostRsvp::class);
 
@@ -78,7 +78,7 @@ Route::middleware(['auth.basic'])->group(function () {
 
     Route::get("/preview-landing", ShowLandingPage::class);
 
-    Route::get('/preview-invite/{id?}', GetInvite::class);
+    Route::get('/preview-invite/{id?}', ViewInvite::class);
 
     Route::get("/preview-email/{id}", function ($id) {
         return new \ConorSmith\Wedding\Mail\EmailInvite(
