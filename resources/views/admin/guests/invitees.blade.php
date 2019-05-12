@@ -25,23 +25,23 @@
           <?php $enabled = $guest->receive_physical && !$guest->receive_email; ?>
           <a href="#"
              class="btn btn-sm btn-success btn-block {{ $enabled ? "js-set-invite-not-sent" : "disabled" }}"
-             data-invite-id="{{ $guest->getInvite()->id }}"
-             style="{{ $guest->getInvite()->sent ? "" : "display: none;" }}"
+             data-invite-id="{{ $guest->invite->id }}"
+             style="{{ $guest->invite->sent ? "" : "display: none;" }}"
           >
             <i class="far fa-check-circle"></i> Sent
           </a>
           <a href="#"
              class="btn btn-sm btn-light btn-block {{ $enabled ? "js-set-invite-sent" : "disabled" }}"
-             data-invite-id="{{ $guest->getInvite()->id }}"
-             style="{{ !$guest->getInvite()->sent ? "" : "display: none;" }} margin-top: 0;"
+             data-invite-id="{{ $guest->invite->id }}"
+             style="{{ !$guest->invite->sent ? "" : "display: none;" }} margin-top: 0;"
           >
             Not Sent
           </a>
         </td>
 
         <td style="width: 120px;">
-          @if($guest->getInvite()->response)
-            @if($guest->getInvite()->response->attending)
+          @if($guest->invite->response)
+            @if($guest->invite->response->attending)
               <a href="#" class="btn btn-sm btn-success btn-block disabled">
                 <i class="far fa-check-circle"></i> Yes
               </a>

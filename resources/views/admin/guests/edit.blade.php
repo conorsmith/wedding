@@ -88,20 +88,20 @@
       <label class="col-sm-2 col-form-label">Joint Invite</label>
       <div class="col-sm-1">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="invite_plus_partner" value="yes" {{ $guest->getInvite()->isForTwoGuests() ? 'checked="checked"' : '' }}>
+          <input class="form-check-input" type="radio" name="invite_plus_partner" value="yes" {{ $guest->invite->is_for_two_guests ? 'checked="checked"' : '' }}>
           <label class="form-check-label">Yes</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="invite_plus_partner" value="no" {{ $guest->getInvite()->isForOneGuest() ? 'checked="checked"' : '' }}>
+          <input class="form-check-input" type="radio" name="invite_plus_partner" value="no" {{ $guest->invite->is_for_one_guest ? 'checked="checked"' : '' }}>
           <label class="form-check-label">No</label>
         </div>
       </div>
-      @if($guest->getInvite()->isForTwoGuests())
+      @if($guest->invite->is_for_two_guests)
         <div class="col-sm-2">
-          <input type="text" readonly class="form-control-plaintext" style="font-style: italic;" value="{{ $guest->getInvite()->guestA->first_name }} and {{ $guest->getInvite()->guestB->first_name }}">
+          <input type="text" readonly class="form-control-plaintext" style="font-style: italic;" value="{{ $guest->invite->guestA->first_name }} and {{ $guest->invite->guestB->first_name }}">
         </div>
         <div class="col-sm-2">
-          <a href="/admin/invites/{{ $guest->getInvite()->id }}/switch?guest={{ $guest->id }}" class="btn btn-block btn-light">Reverse Names</a>
+          <a href="/admin/invites/{{ $guest->invite->id }}/switch?guest={{ $guest->id }}" class="btn btn-block btn-light">Reverse Names</a>
         </div>
       @endif
     </div>
@@ -137,13 +137,13 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Personal Note</label>
       <div class="col-sm-10">
-        <textarea class="form-control" name="invite_note" rows="3">{{ $guest->getInvite()->note }}</textarea>
+        <textarea class="form-control" name="invite_note" rows="3">{{ $guest->invite->note }}</textarea>
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-sm-10 offset-2">
-        <a href="/preview-invite/{{ $guest->getInvite()->id }}" target="_blank">Preview Invite</a>
+        <a href="/preview-invite/{{ $guest->invite->id }}" target="_blank">Preview Invite</a>
       </div>
     </div>
 
@@ -152,15 +152,15 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Attending</label>
       <div class="col-sm-10">
-        <span class="badge badge-{{ $guest->getInvite()->response && $guest->getInvite()->response->attending ? "success" : "secondary" }}">Yes</span>
-        <span class="badge badge-{{ $guest->getInvite()->response && !$guest->getInvite()->response->attending ? "danger" : "secondary" }}">No</span>
+        <span class="badge badge-{{ $guest->invite->response && $guest->invite->response->attending ? "success" : "secondary" }}">Yes</span>
+        <span class="badge badge-{{ $guest->invite->response && !$guest->invite->response->attending ? "danger" : "secondary" }}">No</span>
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Response Note</label>
       <div class="col-sm-10">
-        <textarea class="form-control" name="note" rows="3" disabled>{{ $guest->hasResponded() ? $guest->getInvite()->response->note : "" }}</textarea>
+        <textarea class="form-control" name="note" rows="3" disabled>{{ $guest->has_responded ? $guest->invite->response->note : "" }}</textarea>
       </div>
     </div>
 
@@ -197,7 +197,7 @@
 
               </tr>
 
-              @if($guest->getInvite()->isForTwoGuests())
+              @if($guest->invite->is_for_two_guests)
                 <tr>
 
                   <td>{{ $partner->first_name }} {{ $partner->last_name }}</td>
