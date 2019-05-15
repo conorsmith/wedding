@@ -88,7 +88,7 @@ final class ShowEditGuestForm
             'id'           => strval($partner->getId()),
             'first_name'   => $partner->getFirstName(),
             'last_name'    => $partner->getLastName(),
-            'is_attending' => $partner->isAttending(),
+            'is_attending' => $partner->isAttending() ? "1" : "0",
         ];
     }
 
