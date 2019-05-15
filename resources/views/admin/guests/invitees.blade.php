@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <h1 class="display-3">Invited Guests</h1>
+  <h1 class="display-3">Guestlist</h1>
 
   <table class="table">
     <thead>

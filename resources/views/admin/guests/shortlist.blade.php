@@ -20,9 +20,9 @@
 
         @include('admin.guests.basicRow')
 
-        <td style="text-align: right; width: 130px;">
-          <a href="#" class="btn btn-block btn-sm btn-light border js-invite" style="{{ $guest->is_invited ? "display: none;" : "" }}" data-guest-id="{{ $guest->id }}">Set as Invited</a>
-          <a href="#" class="btn btn-block btn-sm btn-success border js-uninvite" style="margin-top: 0; {{ !$guest->is_invited ? "display: none" : "" }}" data-guest-id="{{ $guest->id }}"><i class="far fa-check-circle"></i> Invited</a>
+        <td style="text-align: right; width: 165px;">
+          <a href="#" class="btn btn-block btn-sm btn-light border js-invite" style="{{ $guest->is_invited ? "display: none;" : "" }}" data-guest-id="{{ $guest->id }}">Awaiting Guestlist</a>
+          <a href="#" class="btn btn-block btn-sm btn-success border js-uninvite" style="margin-top: 0; {{ !$guest->is_invited ? "display: none" : "" }}" data-guest-id="{{ $guest->id }}"><i class="far fa-check-circle"></i> On Guestlist</a>
         </td>
 
       </tr>

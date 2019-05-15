@@ -43,7 +43,7 @@
         <a class="nav-link" href="/admin/guests"><i class="fas fa-list-ol"></i> Shortlist</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin/invitees"><i class="fas fa-envelope-open-text"></i> Invited Guests</a>
+        <a class="nav-link" href="/admin/invitees"><i class="fas fa-envelope-open-text"></i> Guestlist</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/admin/invites?type=email"><i class="fas fa-at"></i> Email Invites</a>
