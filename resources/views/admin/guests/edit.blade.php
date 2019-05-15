@@ -118,7 +118,7 @@
           <label class="form-check-label">No</label>
         </div>
         <small id="passwordHelpInline" class="text-muted">
-          Email an invite to {{ $guest->first_name }} using {{ $guest->email ?? "an email address that is yet to be added" }}
+          Email an invite to {{ $guest->first_name ?: "this guest" }} using {{ $guest->email ?? "an email address that is yet to be added" }}
         </small>
       </div>
     </div>
@@ -167,71 +167,73 @@
       </div>
     </div>
 
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Manual Override</label>
-      <div class="col-sm-5">
-        <div class="card">
-          <div class="card-body">
-            <table class="table table-borderless table-sm" style="margin-bottom: 0;">
+    @if($edit)
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Manual Override</label>
+        <div class="col-sm-5">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-borderless table-sm" style="margin-bottom: 0;">
 
-              <tr>
-
-                <td>{{ $guest->first_name }} {{ $guest->last_name }}</td>
-
-                <td style="width: 160px;">
-
-                  <input type="hidden" name="is_attending" value="{{ $guest->is_attending }}">
-
-                  <a href="#"
-                     class="btn btn-success btn-block js-attending-override"
-                     data-is-guest="1"
-                     data-is-attending="1"
-                     style="{{ !$guest->is_attending ? "display: none;" : "" }}"
-                  >Attending</a>
-
-                  <a href="#"
-                     class="btn btn-danger btn-block js-attending-override"
-                     data-is-guest="1"
-                     data-is-attending="0"
-                     style="margin-top: 0; {{ $guest->is_attending ? "display: none;" : "" }}"
-                  >Not Attending</a>
-
-                </td>
-
-              </tr>
-
-              @if($guest->invite->is_for_two_guests)
                 <tr>
 
-                  <td>{{ $partner->first_name }} {{ $partner->last_name }}</td>
+                  <td>{{ $guest->first_name }} {{ $guest->last_name }}</td>
 
                   <td style="width: 160px;">
 
-                    <input type="hidden" name="partner_is_attending" value="{{ $partner->is_attending }}">
+                    <input type="hidden" name="is_attending" value="{{ $guest->is_attending }}">
 
                     <a href="#"
                        class="btn btn-success btn-block js-attending-override"
-                       data-is-guest="0"
+                       data-is-guest="1"
                        data-is-attending="1"
-                       style="{{ !$partner->is_attending ? "display: none;" : "" }}"
+                       style="{{ !$guest->is_attending ? "display: none;" : "" }}"
                     >Attending</a>
 
                     <a href="#"
                        class="btn btn-danger btn-block js-attending-override"
-                       data-is-guest="0"
+                       data-is-guest="1"
                        data-is-attending="0"
-                       style="margin-top: 0; {{ $partner->is_attending ? "display: none;" : "" }}"
+                       style="margin-top: 0; {{ $guest->is_attending ? "display: none;" : "" }}"
                     >Not Attending</a>
+
                   </td>
 
                 </tr>
-              @endif
 
-            </table>
+                @if($guest->invite->is_for_two_guests)
+                  <tr>
+
+                    <td>{{ $partner->first_name }} {{ $partner->last_name }}</td>
+
+                    <td style="width: 160px;">
+
+                      <input type="hidden" name="partner_is_attending" value="{{ $partner->is_attending }}">
+
+                      <a href="#"
+                         class="btn btn-success btn-block js-attending-override"
+                         data-is-guest="0"
+                         data-is-attending="1"
+                         style="{{ !$partner->is_attending ? "display: none;" : "" }}"
+                      >Attending</a>
+
+                      <a href="#"
+                         class="btn btn-danger btn-block js-attending-override"
+                         data-is-guest="0"
+                         data-is-attending="0"
+                         style="margin-top: 0; {{ $partner->is_attending ? "display: none;" : "" }}"
+                      >Not Attending</a>
+                    </td>
+
+                  </tr>
+                @endif
+
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    @endif
 
     <h3>Gift</h3>
 
@@ -250,9 +252,9 @@
 
   </form>
 
-  @if($edit)
+  <hr>
 
-    <hr>
+  @if($edit)
 
     <div class="row" style="margin-bottom: 40px; text-align: right;">
 
