@@ -117,6 +117,9 @@
           <input class="form-check-input" type="radio" name="receive_email" value="0" {{ !$guest->receive_email ? 'checked="checked"' : '' }}>
           <label class="form-check-label">No</label>
         </div>
+        <small id="passwordHelpInline" class="text-muted">
+          Email an invite to {{ $guest->first_name }} using {{ $guest->email ?? "an email address that is yet to be added" }}
+        </small>
       </div>
     </div>
 
