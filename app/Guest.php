@@ -20,6 +20,10 @@ class Guest extends Model
         'is_attending',
     ];
 
+    public $incrementing = false;
+
+    protected $keyType = "string";
+
     /** @var ?self */
     private $partner;
 
@@ -28,11 +32,6 @@ class Guest extends Model
 
     /** @var ?Invite */
     private $invite;
-
-    public function getKeyType()
-    {
-        return 'string';
-    }
 
     public function getPartner(): ?self
     {

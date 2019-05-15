@@ -13,13 +13,13 @@ class Invite extends Model
         'guest_b',
         'note',
         'access_key',
+        'short_code',
         'sent',
     ];
 
-    public function getKeyType()
-    {
-        return 'string';
-    }
+    public $incrementing = false;
+
+    protected $keyType = "string";
 
     public function getSentAtAttribute($value)
     {
