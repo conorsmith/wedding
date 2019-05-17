@@ -245,8 +245,14 @@
     </div>
 
     <div class="form-group row">
-      <div class="col-sm-10 offset-sm-2">
-        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+      <div class="col-sm-2 offset-sm-2">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+      </div>
+      <div class="col-sm-8">
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" name="is_ready" {{ $guest->is_ready ? "checked" : "" }}>
+          <label class="form-check-label">This guest's information is complete</label>
+        </div>
       </div>
     </div>
 

@@ -15,6 +15,7 @@ class Guest extends Model
         'email',
         'phone',
         'address',
+        'is_ready',
         'receive_email',
         'receive_physical',
         'is_attending',

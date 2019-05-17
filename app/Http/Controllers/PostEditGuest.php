@@ -29,7 +29,9 @@ final class PostEditGuest
         }
 
         DB::transaction(function () use ($request, $guest) {
-            $guest->update($request->all());
+            $guest->update($request->except(['is_ready']));
+            $guest->is_ready = $request->input('is_ready') === "on";
+            $guest->save();
             $this->guestFormHandler->saveRelatedGuestData($request, $guest);
         });
 

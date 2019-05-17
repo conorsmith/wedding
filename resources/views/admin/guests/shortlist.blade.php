@@ -10,7 +10,7 @@
     <thead>
       <tr>
         <th colspan="2">Name</th>
-        <th colspan="3">Contact Info</th>
+        <th colspan="4">Contact Info</th>
         <th colspan="3"></th>
       </tr>
     </thead>

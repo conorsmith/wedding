@@ -28,8 +28,9 @@ final class CreateNewGuest
         $generator = $factory->getGenerator(new Strength(Strength::MEDIUM));
 
         DB::transaction(function () use ($request, $generator) {
-            $guest = new Guest(array_merge($request->all(), [
-                'id' => $guestId = strval(Uuid::uuid4()),
+            $guest = new Guest(array_merge($request->except(['is_ready']), [
+                'id'       => $guestId = strval(Uuid::uuid4()),
+                'is_ready' => $request->input('is_ready') === "on",
             ]));
 
             $invite = new Invite([

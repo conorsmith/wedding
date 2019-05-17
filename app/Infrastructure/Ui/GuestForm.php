@@ -22,6 +22,7 @@ final class GuestForm
         $this->email = $guest->getEmail();
         $this->phone = $guest->getPhone();
         $this->address = $guest->getAddress();
+        $this->is_ready = $guest->isReady() ? "1" : "0";
         $this->receive_email = $guest->receiveEmail();
         $this->receive_physical = $guest->receivePhysical();
         $this->is_attending = $guest->isAttending() ? "1" : "0";

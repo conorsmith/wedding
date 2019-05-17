@@ -13,6 +13,7 @@ final class EmptyGuestForm
         $this->email = null;
         $this->phone = null;
         $this->address = null;
+        $this->is_ready = "0";
         $this->receive_email = "0";
         $this->receive_physical = "0";
         $this->is_attending = "0";

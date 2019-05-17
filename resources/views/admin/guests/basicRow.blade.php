@@ -9,6 +9,12 @@
 
 <td style="color: {{ $guest->receive_physical ? "#ffc107" : "#666" }};"><i class="fas {{ $guest->address ? "fa-home" : "fa-minus" }}" title="{{ $guest->receive_physical ? "Will receive physical invite" : "" }}"></i></td>
 
+<td style="width: 38px;">
+  @if($guest->is_ready)
+    <i class="fas fa-user-check text-success"></i>
+  @endif
+</td>
+
 <td style="text-align: right;">
   <a href="/admin/guests/{{ $guest->id }}" class="btn btn-sm btn-light border">Edit</a>
 </td>

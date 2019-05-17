@@ -29,6 +29,9 @@ final class Guest
     private $address;
 
     /** @var bool */
+    private $isReady;
+
+    /** @var bool */
     private $receiveEmail;
 
     /** @var bool */
@@ -48,6 +51,7 @@ final class Guest
         ?string $email,
         ?string $phone,
         ?string $address,
+        bool $isReady,
         bool $receiveEmail,
         bool $receivePhysical,
         bool $isInvited,
@@ -60,6 +64,7 @@ final class Guest
         $this->email = $email;
         $this->phone = $phone;
         $this->address = $address;
+        $this->isReady = $isReady;
         $this->receiveEmail = $receiveEmail;
         $this->receivePhysical = $receivePhysical;
         $this->isInvited = $isInvited;
@@ -109,6 +114,11 @@ final class Guest
     public function hasAddress(): bool
     {
         return !is_null($this->address);
+    }
+
+    public function isReady(): bool
+    {
+        return $this->isReady;
     }
 
     public function receiveEmail(): bool

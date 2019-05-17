@@ -8,7 +8,7 @@
     <thead>
     <tr>
       <th colspan="2">Name</th>
-      <th colspan="3">Contact Info</th>
+      <th colspan="4">Contact Info</th>
       <th colspan="2"></th>
       <th style="text-align: center;">Invite Sent</th>
       <th style="text-align: center;">RSVP</th>

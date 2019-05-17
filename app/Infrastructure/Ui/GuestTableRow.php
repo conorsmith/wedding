@@ -20,6 +20,7 @@ final class GuestTableRow
         $this->email = $guest->hasEmail();
         $this->phone = $guest->hasPhone();
         $this->address = $guest->hasAddress();
+        $this->is_ready = $guest->isReady();
         $this->receive_email = $guest->receiveEmail();
         $this->receive_physical = $guest->receivePhysical();
         $this->is_invited = $guest->isInvited();
