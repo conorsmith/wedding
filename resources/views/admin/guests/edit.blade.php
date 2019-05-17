@@ -149,13 +149,16 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Personal Note</label>
       <div class="col-sm-10">
-        <textarea class="form-control" name="invite_note" rows="3">{{ $guest->invite->note }}</textarea>
+        <textarea class="form-control js-invite-note" name="invite_note" rows="3">{{ $guest->invite->note }}</textarea>
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-sm-10 offset-2">
-        <a href="/preview-invite/{{ $guest->invite->id }}" target="_blank">Preview Invite</a>
+        <a href="/preview-invite/{{ $guest->invite->id }}?note={{ urlencode($guest->invite->note) }}"
+           class="btn btn-light js-invite-link"
+           target="_blank"
+           data-base-url="/preview-invite/{{ $guest->invite->id }}?note=">Preview Invite with this Note</a>
       </div>
     </div>
 
@@ -318,6 +321,12 @@
 
           $(this).hide();
           $(this).siblings(".js-attending-override").show();
+      });
+
+
+      $(".js-invite-note").on('keyup', function (e) {
+          var $link = $(".js-invite-link");
+          $link.attr('href', $link.data('base-url') + encodeURI(e.target.value));
       });
   </script>
 @endsection

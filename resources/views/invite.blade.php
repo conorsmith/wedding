@@ -39,7 +39,9 @@
           <p><span class="name">Guest</span></p>
         @endif
 
-        @if($invite && $invite->note)
+        @if($noteOverride)
+          <p class="note">{!! nl2br($noteOverride) !!}</p>
+        @elseif($invite && $invite->note)
           <p class="note">{!! nl2br($invite->note) !!}</p>
         @else
           <p class="note">Please join us for</p>

@@ -17,9 +17,10 @@ final class ViewInvite
         }
 
         return view('invite', [
-            'invite'   => Invite::find($id),
-            'response' => Response::where('invite', $id)->first(),
-            'style'    => $request->get('style', "3"),
+            'invite'       => Invite::find($id),
+            'response'     => Response::where('invite', $id)->first(),
+            'style'        => $request->get('style', "3"),
+            'noteOverride' => $request->get('note'),
         ]);
     }
 
