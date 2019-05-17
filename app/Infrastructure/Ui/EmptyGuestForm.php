@@ -23,11 +23,8 @@ final class EmptyGuestForm
             'note'              => "",
             'is_for_one_guest'  => "1",
             'is_for_two_guests' => "0",
-            'guestA'            => (object) [
-                'first_name' => "",
-            ],
-            'guestB'            => null,
             'response'          => null,
         ];
+        $this->partner = null;
     }
 }

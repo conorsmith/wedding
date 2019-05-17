@@ -54,31 +54,18 @@
         <select class="form-control" name="partner">
           <option value="null">N/A</option>
           @foreach($guests as $otherGuest)
-            <?php $isPartner = $partner && $partner->id === $otherGuest->id; ?>
-            <option value="{{ $otherGuest->id }}" {{ $isPartner ? 'selected="selected"' : '' }}>
-              {{ $otherGuest->first_name }} {{ $otherGuest->last_name }}
+            <option value="{{ $otherGuest->id }}"
+                {{ $guest->partner && $guest->partner->id === $otherGuest->id ? "selected" : "" }}
+            >
+              {{ $otherGuest->name }}
             </option>
           @endforeach
         </select>
       </div>
       <div class="col-sm-2">
-        @if($partner)
-          <a href="/admin/guests/{{ $partner->id }}" class="btn btn-block btn-light">Edit Partner's Info</a>
+        @if($guest->partner)
+          <a href="/admin/guests/{{ $guest->partner->id }}" class="btn btn-block btn-light">Edit Partner's Info</a>
         @endif
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Children</label>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="has_children" value="option1">
-          <label class="form-check-label">Yes</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="has_children" value="option2">
-          <label class="form-check-label">No</label>
-        </div>
       </div>
     </div>
 
@@ -98,10 +85,12 @@
       </div>
       @if($guest->invite->is_for_two_guests)
         <div class="col-sm-2">
-          <input type="text" readonly class="form-control-plaintext" style="font-style: italic;" value="{{ $guest->invite->guestA->first_name }} and {{ $guest->invite->guestB->first_name }}">
+          <input type="text" readonly class="form-control-plaintext" style="font-style: italic;" value="{{ $guest->invite->joint_invite_names }}">
         </div>
         <div class="col-sm-2">
-          <a href="/admin/invites/{{ $guest->invite->id }}/switch?guest={{ $guest->id }}" class="btn btn-block btn-light">Reverse Names</a>
+          <a href="/admin/invites/{{ $guest->invite->id }}/switch?guest={{ $guest->id }}"
+             class="btn btn-block btn-light"
+          >Reverse Names</a>
         </div>
       @endif
     </div>
@@ -110,11 +99,21 @@
       <label class="col-sm-2 col-form-label">Send Invite via Email</label>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="receive_email" value="1" {{ $guest->receive_email ? 'checked="checked"' : '' }}>
+          <input class="form-check-input"
+                 type="radio"
+                 name="receive_email"
+                 value="1"
+              {{ $guest->receive_email ? "checked" : "" }}
+          >
           <label class="form-check-label">Yes</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="receive_email" value="0" {{ !$guest->receive_email ? 'checked="checked"' : '' }}>
+          <input class="form-check-input"
+                 type="radio"
+                 name="receive_email"
+                 value="0"
+              {{ !$guest->receive_email ? "checked" : "" }}
+          >
           <label class="form-check-label">No</label>
         </div>
         <small id="passwordHelpInline" class="text-muted">
@@ -127,11 +126,21 @@
       <label class="col-sm-2 col-form-label">Send Physical Invite</label>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="receive_physical" value="1" {{ $guest->receive_physical ? 'checked="checked"' : '' }}>
+          <input class="form-check-input"
+                 type="radio"
+                 name="receive_physical"
+                 value="1"
+              {{ $guest->receive_physical ? "checked" : "" }}
+          >
           <label class="form-check-label">Yes</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="receive_physical" value="0" {{ !$guest->receive_physical ? 'checked="checked"' : '' }}>
+          <input class="form-check-input"
+                 type="radio"
+                 name="receive_physical"
+                 value="0"
+              {{ !$guest->receive_physical ? "checked" : "" }}
+          >
           <label class="form-check-label">No</label>
         </div>
       </div>
@@ -155,8 +164,8 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Attending</label>
       <div class="col-sm-10">
-        <span class="badge badge-{{ $guest->invite->response && $guest->invite->response->attending ? "success" : "secondary" }}">Yes</span>
-        <span class="badge badge-{{ $guest->invite->response && !$guest->invite->response->attending ? "danger" : "secondary" }}">No</span>
+        <span class="badge badge-{{ $guest->has_responded && $guest->invite->response->attending ? "success" : "secondary" }}">Yes</span>
+        <span class="badge badge-{{ $guest->has_responded && !$guest->invite->response->attending ? "danger" : "secondary" }}">No</span>
       </div>
     </div>
 
@@ -204,24 +213,24 @@
                 @if($guest->invite->is_for_two_guests)
                   <tr>
 
-                    <td>{{ $partner->first_name }} {{ $partner->last_name }}</td>
+                    <td>{{ $guest->partner->name }}</td>
 
                     <td style="width: 160px;">
 
-                      <input type="hidden" name="partner_is_attending" value="{{ $partner->is_attending }}">
+                      <input type="hidden" name="partner_is_attending" value="{{ $guest->partner->is_attending }}">
 
                       <a href="#"
                          class="btn btn-success btn-block js-attending-override"
                          data-is-guest="0"
                          data-is-attending="1"
-                         style="{{ !$partner->is_attending ? "display: none;" : "" }}"
+                         style="{{ !$guest->partner->is_attending ? "display: none;" : "" }}"
                       >Attending</a>
 
                       <a href="#"
                          class="btn btn-danger btn-block js-attending-override"
                          data-is-guest="0"
                          data-is-attending="0"
-                         style="margin-top: 0; {{ $partner->is_attending ? "display: none;" : "" }}"
+                         style="margin-top: 0; {{ $guest->partner->is_attending ? "display: none;" : "" }}"
                       >Not Attending</a>
                     </td>
 
@@ -235,6 +244,8 @@
       </div>
     @endif
 
+    {{--
+
     <h3>Gift</h3>
 
     <div class="form-group row">
@@ -243,6 +254,8 @@
         <textarea class="form-control" name="gift" rows="3" disabled></textarea>
       </div>
     </div>
+
+    --}}
 
     <div class="form-group row">
       <div class="col-sm-2 offset-sm-2">
@@ -262,18 +275,22 @@
 
   @if($edit)
 
-    <div class="row" style="margin-bottom: 40px; text-align: right;">
+    <div class="row" style="margin-bottom: 40px; text-align: center;">
 
       <div class="col-sm-3 offset-sm-9">
+        <div class="card">
+          <div class="card-body">
 
-        <h3>Danger Zone</h3>
+            <h4>Danger Zone</h4>
 
-        <form method="POST" action="/admin/guests/{{ $guest->id }}" class="delete">
-          @csrf
-          <input type="hidden" name="_method" value="delete" />
-          <button type="submit" class="btn btn-sm btn-danger">Delete this Guest</button>
-        </form>
+            <form method="POST" action="/admin/guests/{{ $guest->id }}" class="delete" style="margin-top: 20px;">
+              @csrf
+              <input type="hidden" name="_method" value="delete" />
+              <button type="submit" class="btn btn-sm btn-danger">Delete this Guest</button>
+            </form>
 
+          </div>
+        </div>
       </div>
 
     </div>

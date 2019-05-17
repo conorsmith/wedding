@@ -11,6 +11,7 @@ final class GuestForm
 {
     public function __construct(Guest $guest, GuestRepository $guestRepo, InviteRepository $inviteRepo)
     {
+        $partner = $guest->findPartner($guestRepo);
         $invite = $inviteRepo->findForGuest($guest);
         $guestA = $invite->findGuestA($guestRepo);
         $guestB = $invite->findGuestB($guestRepo);
@@ -32,14 +33,9 @@ final class GuestForm
             'note'              => $invite->getNote(),
             'is_for_one_guest'  => $invite->isForOneGuest(),
             'is_for_two_guests' => $invite->isForTwoGuests(),
-            'guestA'            => (object) [
-                'first_name' => $guestA->getFirstName(),
-            ],
-            'guestB'            => is_null($guestB)
-                ? null
-                : (object) [
-                    'first_name' => $guestB->getFirstName(),
-                ],
+            'joint_invite_names' => $invite->isForTwoGuests()
+                ? "{$guestA->getFirstName()} and {$guestB->getFirstName()}"
+                : null,
             'response'          => is_null($response)
                 ? null
                 : (object) [
@@ -47,5 +43,12 @@ final class GuestForm
                     'note'      => $response->getNote(),
                 ],
         ];
+        $this->partner = is_null($partner)
+            ? null
+            : (object) [
+                'id'           => strval($partner->getId()),
+                'name'         => "{$partner->getFirstName()} {$partner->getLastName()}",
+                'is_attending' => $partner->isAttending() ? "1" : "0",
+            ];
     }
 }
