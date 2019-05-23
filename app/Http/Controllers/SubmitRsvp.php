@@ -61,7 +61,7 @@ final class SubmitRsvp
 
         });
 
-        return redirect("/invite/{$id}#responded");
+        return redirect("/invite/{$id}?key={$request->get('key')}#responded");
     }
 
     private function authorized(Request $request, $id): bool
