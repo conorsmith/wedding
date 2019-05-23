@@ -143,12 +143,12 @@
     @else
 
       <div class="responded" id="responded">
-        <p>Thank you for responding!</p>
+        <p>Thank you for responding</p>
 
         @if($response->attending)
           <p>We can't wait to see you on the day!</p>
 
-          <p class="contact">You can find more details about the day on <a href="/">the main page</a></p>
+          <p class="contact">You can find more details about the day, such as directions and accommodation options, on <a href="/">the main page</a>.</p>
         @else
           <p>Sorry you can't make it!</p>
         @endif
