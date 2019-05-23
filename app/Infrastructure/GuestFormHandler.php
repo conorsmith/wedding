@@ -44,15 +44,15 @@ final class GuestFormHandler
 
     private function updateInvites(Request $request, Guest $guest): void
     {
-        if (!$guest->hasPartner()) {
-            return;
-        }
-
         $invite = $guest->getInvite();
 
         $invite->update([
             'note' => $request->input('invite_note') ?? "",
         ]);
+
+        if (!$guest->hasPartner()) {
+            return;
+        }
 
         if ($this->shouldMergeInvites($request, $guest)) {
             $partnerInvite = Invite::where('guest_a', $guest->getPartner()->id)
