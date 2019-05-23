@@ -29,11 +29,21 @@ final class SendInviteEmail
             return new JsonResponse(["Neither guest is set to receive an email invite"], 500);
         }
 
-        Mail::to("conor@tercet.io")->send(
-            new EmailInvite(
-                Invite::find($id)
-            )
-        );
+        $emailAddresses = ["conor@tercet.io"];
+
+        if (getenv('SEND_REAL_EMAILS')) {
+            $emailAddresses = $invite->getEmailAddresses();
+        }
+
+        foreach ($emailAddresses as $emailAddress) {
+            Mail::to($emailAddress)
+                ->bcc("conor@tercet.io")
+                ->send(
+                    new EmailInvite(
+                        Invite::find($id)
+                    )
+                );
+        }
 
         $failures = Mail::failures();
 

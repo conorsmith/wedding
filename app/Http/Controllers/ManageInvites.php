@@ -63,7 +63,8 @@ final class ManageInvites
             });
 
         return view('admin.emailInvites', [
-            'invites' => $invites,
+            'invites'        => $invites,
+            'sendRealEmails' => getenv('SEND_REAL_EMAILS'),
         ]);
     }
 }
