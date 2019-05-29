@@ -2,6 +2,14 @@
 <html class="no-js" lang="">
 @inject('siteMode', 'ConorSmith\Wedding\SiteMode')
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141020894-1"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-141020894-1');
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{{ $siteMode->getNames() }}'s Wedding</title>
