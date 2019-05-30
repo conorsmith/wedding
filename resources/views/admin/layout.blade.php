@@ -51,6 +51,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/admin/invites?type=physical"><i class="fas fa-mail-bulk"></i> Physical Invites</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/responses"><i class="fas fa-reply-all"></i> Responses</a>
+      </li>
     </ul>
   </div>
   <div class="collapse navbar-collapse flex-row-reverse">

@@ -22,4 +22,9 @@ class Response extends Model
     {
         return $this->belongsTo(Invite::class, 'invite');
     }
+
+    public function linkedInvite()
+    {
+        return $this->belongsTo(Invite::class, 'invite');
+    }
 }
