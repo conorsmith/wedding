@@ -11,7 +11,7 @@
       <tr>
         <th colspan="2">Name</th>
         <th colspan="4">Contact Info</th>
-        <th colspan="3"></th>
+        <th colspan="4"></th>
       </tr>
     </thead>
     <tbody>
@@ -73,6 +73,46 @@
                   for (var i = 0; i < data.guests.length; i++) {
                       $(".js-uninvite[data-guest-id='" + data.guests[i] + "']").hide();
                       $(".js-invite[data-guest-id='" + data.guests[i] + "']").show();
+                  }
+                  button.innerHTML = originalHtml;
+              }
+          );
+      });
+
+      $(".js-invite-afters").on('click', function (e) {
+          e.preventDefault();
+          var button = this;
+          var originalHtml = this.innerHTML;
+          this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
+          $.post(
+              "/admin/guests/" + this.dataset.guestId + "/toggle-is-invited-afters",
+              {
+                  isInvitedAfters: 1
+              },
+              function (data, status, xhr) {
+                  for (var i = 0; i < data.guests.length; i++) {
+                      $(".js-invite-afters[data-guest-id='" + data.guests[i] + "']").hide();
+                      $(".js-uninvite-afters[data-guest-id='" + data.guests[i] + "']").show();
+                  }
+                  button.innerHTML = originalHtml;
+              }
+          );
+      });
+
+      $(".js-uninvite-afters").on('click', function (e) {
+          e.preventDefault();
+          var button = this;
+          var originalHtml = this.innerHTML;
+          this.innerHTML = "<i class=\"fas fa-spinner rotate\"></i>";
+          $.post(
+              "/admin/guests/" + this.dataset.guestId + "/toggle-is-invited-afters",
+              {
+                  isInvitedAfters: 0
+              },
+              function (data, status, xhr) {
+                  for (var i = 0; i < data.guests.length; i++) {
+                      $(".js-uninvite-afters[data-guest-id='" + data.guests[i] + "']").hide();
+                      $(".js-invite-afters[data-guest-id='" + data.guests[i] + "']").show();
                   }
                   button.innerHTML = originalHtml;
               }
