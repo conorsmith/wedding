@@ -41,6 +41,9 @@ final class Guest
     private $isInvited;
 
     /** @var bool */
+    private $isInvitedAfters;
+
+    /** @var bool */
     private $isAttending;
 
     public function __construct(
@@ -55,6 +58,7 @@ final class Guest
         bool $receiveEmail,
         bool $receivePhysical,
         bool $isInvited,
+        bool $isInvitedAfters,
         bool $isAttending
     ) {
         $this->id = $id;
@@ -68,6 +72,7 @@ final class Guest
         $this->receiveEmail = $receiveEmail;
         $this->receivePhysical = $receivePhysical;
         $this->isInvited = $isInvited;
+        $this->isInvitedAfters = $isInvitedAfters;
         $this->isAttending = $isAttending;
     }
 
@@ -134,6 +139,11 @@ final class Guest
     public function isInvited(): bool
     {
         return $this->isInvited;
+    }
+
+    public function isInvitedAfters(): bool
+    {
+        return $this->isInvitedAfters;
     }
 
     public function isAttending(): bool

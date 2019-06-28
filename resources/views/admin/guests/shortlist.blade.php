@@ -25,6 +25,11 @@
           <a href="#" class="btn btn-block btn-sm btn-success border js-uninvite" style="margin-top: 0; {{ !$guest->is_invited ? "display: none" : "" }}" data-guest-id="{{ $guest->id }}"><i class="far fa-check-circle"></i> On Guestlist</a>
         </td>
 
+        <td style="text-align: right; width: 165px;">
+          <a href="#" class="btn btn-block btn-sm btn-light border js-invite-afters" style="{{ $guest->is_invited_afters ? "display: none;" : "" }}" data-guest-id="{{ $guest->id }}">Add to Afters List</a>
+          <a href="#" class="btn btn-block btn-sm btn-success border js-uninvite-afters" style="margin-top: 0; {{ !$guest->is_invited_afters ? "display: none" : "" }}" data-guest-id="{{ $guest->id }}"><i class="far fa-check-circle"></i> On Afters List</a>
+        </td>
+
       </tr>
     @endforeach
     </tbody>

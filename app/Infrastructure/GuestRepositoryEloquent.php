@@ -82,6 +82,7 @@ final class GuestRepositoryEloquent implements GuestRepository
             boolval($model->receive_email),
             boolval($model->receive_physical),
             boolval($model->is_invited),
+            boolval($model->is_invited_afters),
             boolval($model->is_attending)
         );
     }

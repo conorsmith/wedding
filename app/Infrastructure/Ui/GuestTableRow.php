@@ -24,6 +24,7 @@ final class GuestTableRow
         $this->receive_email = $guest->receiveEmail();
         $this->receive_physical = $guest->receivePhysical();
         $this->is_invited = $guest->isInvited();
+        $this->is_invited_afters = $guest->isInvitedAfters();
         $this->is_attending = $guest->isAttending();
         $this->partner = is_null($partner)
             ? null
