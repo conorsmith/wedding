@@ -46,6 +46,9 @@
         <a class="nav-link" href="/admin/invitees"><i class="fas fa-envelope-open-text"></i> Guestlist</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/admin/afters"><i class="fas fa-moon"></i> Afters List</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/admin/invites?type=email"><i class="fas fa-at"></i> Email Invites</a>
       </li>
       <li class="nav-item">

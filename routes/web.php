@@ -34,6 +34,7 @@ Route::middleware(['auth.basic'])->group(function () {
 
     Route::get("/admin/guests", ListShortlistedGuests::class);
     Route::get("/admin/invitees", ListInvitedGuests::class);
+    Route::get("/admin/afters", ListAftersGuests::class);
     Route::get("/admin/invites", ManageInvites::class);
     Route::get("/admin/responses", ShowResponses::class);
 

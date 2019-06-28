@@ -46,6 +46,19 @@ final class GuestRepositoryEloquent implements GuestRepository
             ->toArray();
     }
 
+    public function allInvitedToAftersByLastName(): iterable
+    {
+        $models = \ConorSmith\Wedding\Guest::where('is_invited_afters', true)
+            ->orderBy('last_name')
+            ->get();
+
+        return $models
+            ->map(function (\ConorSmith\Wedding\Guest $model) {
+                return $this->reconstitute($model);
+            })
+            ->toArray();
+    }
+
     public function find(UuidInterface $id): ?Guest
     {
         $model = \ConorSmith\Wedding\Guest::find($id);

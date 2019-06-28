@@ -10,6 +10,7 @@ interface GuestRepository
     public function allByFirstName(): iterable;
     public function allByLastName(): iterable;
     public function allInvitedByLastName(): iterable;
+    public function allInvitedToAftersByLastName(): iterable;
     public function find(UuidInterface $id): ?Guest;
     public function save(Guest $guest): void;
 }
