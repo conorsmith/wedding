@@ -2,7 +2,11 @@
 
 <h2>Dear {{ $invite->guestA->first_name }}{{ $invite->isForTwoGuests() ? " & " . $invite->guestB->first_name : "" }},</h2>
 
-<p>We request the pleasure of your company at our wedding this summer.</p>
+@if($invite->guestA->is_invited)
+  <p>We request the pleasure of your company at our wedding this summer.</p>
+@else
+  <p>We request the pleasure of your company at the afters of our wedding.</p>
+@endif
 
 <table>
   <tr>

@@ -18,6 +18,9 @@
       <tr>
 
         <td>
+          @if($invite->guestA->is_invited_afters)
+            <i class="fas fa-fw fa-moon"></i>
+          @endif
           {{ $invite->guestA->first_name }} {{ $invite->guestA->last_name }}
           @if($invite->isForTwoGuests())
             + {{ $invite->guestB->first_name }} {{ $invite->guestB->last_name }}

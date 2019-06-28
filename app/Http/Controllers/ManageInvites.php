@@ -48,10 +48,11 @@ final class ManageInvites
     {
         $invites = Invite::all()
             ->filter(function ($invite) {
-                return $invite->guestA->is_invited
+                return ($invite->guestA->is_invited || $invite->guestA->is_invited_afters)
                     && (
                         is_null($invite->guestB)
                         || $invite->guestB->is_invited
+                        || $invite->guestB->is_invited_afters
                     );
             })
             ->filter(function ($invite) {

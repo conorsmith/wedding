@@ -60,10 +60,18 @@
       <hr class="rule">
 
       <div class="hero">
-        <p class="intro">The Wedding of</p>
-        <p class="name">Stephanie Fleming</p>
-        <p class="and">and</p>
-        <p class="name">Conor Smith</p>
+        @if($invite->guestA->is_invited)
+          <p class="intro">The Wedding of</p>
+          <p class="name">Stephanie Fleming</p>
+          <p class="and">and</p>
+          <p class="name">Conor Smith</p>
+        @else
+          <p class="intro">The Afters of</p>
+          <p class="name">Stephanie Fleming</p>
+          <p class="and">and</p>
+          <p class="name">Conor Smith's</p>
+          <p class="intro">Wedding</p>
+        @endif
       </div>
 
       <hr class="rule">
@@ -85,7 +93,11 @@
         <span class="date-day">18</span> August <span class="date-year">2019</span>
       </div>
       <div class="time">
-        3.00 pm
+        @if($invite->guestA->is_invited)
+          3.00 pm
+        @else
+          10.00pm
+        @endif
       </div>
     </div>
 
@@ -121,11 +133,19 @@
         <div class="attending-container clearfix">
 
           <a href="#" class="button" id="attending">
-            {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
+            @if($invite->guestA->is_invited)
+              {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will be attending
+            @else
+              {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will attend the Afters
+            @endif
           </a>
 
           <a href="#" class="button" id="not-attending">
-            {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
+            @if($invite->guestA->is_invited)
+              {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} will not be attending
+            @else
+              {{ $invite && $invite->isforOneGuest() ? "I" : "We" }} won't attend the Afters
+            @endif
           </a>
 
           <input type="hidden" name="attending" id="attending-input" value="" />
@@ -134,7 +154,13 @@
 
         <div class="text-input">
 
-          <label>If you need to let us know anything, such as any dietary requirements, type it in below</label>
+          <label>
+            @if($invite->guestA->is_invited)
+              If you need to let us know anything, such as any dietary requirements, type it in below
+            @else
+              If you need to let us know anything type it in below
+            @endif
+          </label>
 
           <textarea rows="3" name="note"></textarea>
 
@@ -154,9 +180,15 @@
         <p>Thank you for responding</p>
 
         @if($response->attending)
-          <p>We can't wait to see you on the day!</p>
+          @if($invite->guestA->is_invited)
+            <p>We can't wait to see you on the day!</p>
 
-          <p class="contact">You can find more details about the day, such as directions and accommodation options, on <a href="/">the main page</a>.</p>
+            <p class="contact">You can find more details about the day, such as directions and accommodation options, on <a href="/">the main page</a>.</p>
+          @else
+            <p>We can't wait to see you on the night!</p>
+
+            <p class="contact">You can find more details, such as directions to the venue, on <a href="/">the main page</a>.</p>
+          @endif
         @else
           <p>Sorry you can't make it!</p>
         @endif
